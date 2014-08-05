@@ -2,8 +2,9 @@ Rails.application.routes.draw do
 
   resources :products
 
-  get '/users/:id', to: 'users#show'
-  # patch '/users/:id'
+  resources :users , only: [:show, :edit, :update, :destroy] do
+    resources :orders, only: [:show, :edit, :update]
+  end
 
   root 'products#index'
 
