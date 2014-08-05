@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+
+  resources :products
+
+  get '/users/:id', to: 'users#show'
+  # patch '/users/:id'
+
+  root 'products#index'
+
+  get '/login', to: 'products#index'
+  get '/logout', to: 'sessions#destroy'
+
+  get '/auth/amazon/callback', to: 'sessions#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
