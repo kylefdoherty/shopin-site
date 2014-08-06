@@ -1,22 +1,24 @@
-- add products to orders
-- logic to total orders
-- order show & edit pages 
-- ajaxify order edit page 
+KYLE:
+- display quantity of product
+- increment/decrement product quantity when seller edits/buyer purchases
 
-- bulk upload products 
-- checkout cart with pay stripe 
-- add order to buyer history on show page 
-- add order to seller list of orders 
+
+- ajaxify order edit page
+- sort by price (category?) (ajax)
+
+
+EMILY:
+- add order to buyer history on show page
+- add order to seller list of orders
 - notify buyer & seller(s) when order is completed
-- auto search 
-- sort by categroy (ajax)
-- create dashboard for sellers : most popular products, sales over time, 
 - users shipping info, etc.
-- 
 
+DOWN THE LINE:
+- checkout cart with pay stripe / add amts to seller bank when product sold?
+- create dashboard for sellers : most popular products, sales over time
+- authorization for users w/ pundit
+- upload images for products
 - slugify urls: products, users
-- authorization for users w/ pundit 
-- upload images for products 
-- write tests for sessions and access control 
-- hide links if they're not vendor 
-- add amts to seller bank when product sold 
+- bulk upload products
+- auto search
+- write tests for sessions and access control
