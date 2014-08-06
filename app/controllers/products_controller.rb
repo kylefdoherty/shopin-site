@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit]
+  before_action :authorize_vendor!, except: [:index, :show]
 
   def index
     @products = Product.all
@@ -43,5 +44,13 @@ class ProductsController < ApplicationController
     def product_hash
       params.require(:product).permit(:title, :price, :description)
     end
+
+    def authorize_vendor!
+      authentication_required
+      unless current_user.vendor?
+        flash[:notice] = "You must be a vendor to do that."
+        redirect_to root_path
+      end 
+    end 
 
 end

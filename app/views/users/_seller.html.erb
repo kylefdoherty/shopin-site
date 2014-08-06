@@ -1,0 +1,14 @@
+<h2>Products</h2>
+<table class="pretty">
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+  </tr>
+<% @user.products.each do |product| %>
+  <tr>
+    <td><%= link_to product.title, product %></td>
+    <td class="price"><%= product.price %></td>
+  </tr>
+<% end %>
+</table>
+

@@ -7,9 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-user1 = User.create(name: "user1")
-user2 = User.create(name: "user2")
-user3 = User.create(name: "user3")
+user1 = User.create(name: "user1", vendor: true)
+user2 = User.create(name: "user2", vendor: true)
+user3 = User.create(name: "user3", vendor: true)
+user4 = User.create(name: "user4", vendor: false)
+user5 = User.create(name: "user5", vendor: false)
 
 product1 = Product.create(title: "product1", price: 10.00, seller_id: 1)
 product2 = Product.create(title: "product2", price: 15.00, seller_id: 2)

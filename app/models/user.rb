@@ -11,5 +11,9 @@ class User < ActiveRecord::Base
       name: auth_hash[:info][:name]
     )
   end
+
+  def vendor?
+    self.vendor
+  end 
   
 end
