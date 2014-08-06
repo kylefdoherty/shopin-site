@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/users/:user_id/orders/:id', to: 'orders#show', as: 'order'
 
   resources :line_items, only: [:create, :update, :destroy]
+  
 
 
 

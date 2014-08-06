@@ -1,14 +1,17 @@
 <h2>Orders:</h2>
 
-<table class="pretty" style="width:150px">
+<table style="width:150px">
   <tr>
     <th>Name</th>
     <th>Price</th>
+    <th>Delete</th>
   </tr>
-<% @order.items.each do |i| %>
+<% @order.line_items.each do |li| %>
   <tr>
-    <td><%= i.title %></td>
-    <td class="price"><%= i.price %></td>
+    <td><%= li.item.title %></td>
+    <td class="price"><%= li.item.price %></td>
+    <td><%= link_to 'Remove', li, method: :delete %></td>
   </tr>
 <% end %>
 </table>
+

@@ -13,6 +13,15 @@ class LineItemsController < ApplicationController
 
   end 
 
+  def destroy
+    @line_item = LineItem.find(params[:id])
+    @order = Order.find(@line_item.order_id) 
+    @user = User.find(session[:user_id])
+    @line_item.destroy
+
+    redirect_to :back
+  end
+
 
 
 
