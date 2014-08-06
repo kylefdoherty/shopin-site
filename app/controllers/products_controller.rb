@@ -1,15 +1,18 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit]
   before_action :authorize_vendor!, except: [:index, :show]
+  skip_before_action :authentication_required, only: [:index, :show]
 
   def index
     @products = Product.all
   end
 
   def show
-    @seller = User.find(@product.seller_id)
-    @user = User.find(session[:user_id])
-    @order = @user.orders.last
+    @seller ||= User.find(@product.seller_id)
+    if session[:user_id]
+      @user = User.find(session[:user_id])
+      @order = @user.orders.last
+    end
   end 
 
   def new

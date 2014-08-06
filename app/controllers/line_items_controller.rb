@@ -1,6 +1,7 @@
 class LineItemsController < ApplicationController
 
-  def create 
+  def create
+    # redirect_to "auth/amazon" unless params[:line_item][:order_id]
     @line_item = LineItem.create(lineitem_params)
     @order = @line_item.order
     @user = User.find(@order.buyer_id)
