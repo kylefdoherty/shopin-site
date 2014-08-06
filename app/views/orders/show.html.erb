@@ -1,9 +1,14 @@
 <h2>Orders:</h2>
 
-<ul>
-<% @order.items.each do |p| %>
-  <li><%=p.title %></li>
-  
-  
+<table class="pretty" style="width:150px">
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+  </tr>
+<% @order.items.each do |i| %>
+  <tr>
+    <td><%= i.title %></td>
+    <td class="price"><%= i.price %></td>
+  </tr>
 <% end %>
-</ul>
+</table>
