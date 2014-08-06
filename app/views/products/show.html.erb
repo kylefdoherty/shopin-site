@@ -2,11 +2,14 @@
 <h3><%= @product.price %></h3>
 <h3><%= @seller.name %></h3>
 <p><%= @product.description %></p>
-<p><%= link_to "Edit", edit_product_path %></p>
-
-<%= form_for LineItem.new do |f|  %>
-  <%= f.hidden_field(:item_id, value: @product.id) %>
-  <%= f.hidden_field(:order_id, value: @order.id) %>
-  
-  <%= f.submit %>
-<% end %>   
+<% if @user && @user == @seller %>
+  <p><%= link_to "Edit", edit_product_path %></p>
+<% elsif current_user %>
+  <%= form_for LineItem.new do |f|  %>
+    <%= f.hidden_field(:item_id, value: @product.id) %>
+    <%= f.hidden_field(:order_id, value: @order.id) %>
+    <%= f.submit 'Buy' %>
+  <% end %>
+<% else %>
+  <%= button_to "Log in to purchase", "/auth/amazon" %>
+<% end %>

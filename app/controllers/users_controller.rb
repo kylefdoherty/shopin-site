@@ -28,6 +28,4 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :vendor)
     end 
 
-
-
 end

@@ -1,17 +1,25 @@
-<h2>Orders:</h2>
-
+<h2><%= User.find(@order.buyer_id).name %>'s Order:</h2>
+<h3>Order Total: <%= @order.total %></h3>
 <table style="width:150px">
   <tr>
     <th>Name</th>
     <th>Price</th>
-    <th>Delete</th>
+    <th><%= 'Delete' unless @order.closed %></th>
   </tr>
 <% @order.line_items.each do |li| %>
   <tr>
     <td><%= li.item.title %></td>
     <td class="price"><%= li.item.price %></td>
-    <td><%= link_to 'Remove', li, method: :delete %></td>
+    <td><%= link_to('Remove', li, method: :delete) unless @order.closed %></td>
   </tr>
 <% end %>
 </table>
 
+<% unless @order.closed %>
+  <%= form_for [@user, @order] do |f| %>
+    <%= hidden_field(:id, value: @order.id) %>
+    <%= f.hidden_field(:user_id, value: @order.buyer_id) %>
+    <%= f.hidden_field(:closed, value: true) %>
+    <%= f.submit 'Checkout' %>
+  <% end %>
+<% end %>
