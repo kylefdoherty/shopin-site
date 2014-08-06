@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20140805190453) do
   create_table "products", force: true do |t|
     t.string   "title"
     t.float    "price"
+    t.text     "description"
     t.integer  "seller_id"
     t.datetime "created_at"
     t.datetime "updated_at"

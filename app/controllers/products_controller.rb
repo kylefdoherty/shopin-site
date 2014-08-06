@@ -1,5 +1,4 @@
 class ProductsController < ApplicationController
-  skip_before_action :authentication_required, only: :index
   before_action :set_product, only: [:show, :edit]
 
   def index
@@ -11,7 +10,6 @@ class ProductsController < ApplicationController
   end 
 
   def new
-    # @user = User.find(params[:id]) we should have access session[:user_id]
     @product = Product.new
   end
 
@@ -38,7 +36,7 @@ class ProductsController < ApplicationController
     end
 
     def product_hash
-      params.require(:product).permit(:title, :price)
+      params.require(:product).permit(:title, :price, :description)
     end
 
 end
