@@ -14,7 +14,12 @@ class ProductsController < ApplicationController
   end
 
   def create
-    if @product = Product.create(product_hash)
+
+    @product = Product.create(product_hash)
+    @product.seller_id = session[:user_id]
+    @product.save
+
+    if @product
       redirect_to(@product)
     else
       render :edit
