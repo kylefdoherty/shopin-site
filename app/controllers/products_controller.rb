@@ -6,6 +6,10 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
+  def show
+    @seller = User.find(@product.seller_id)
+  end 
+
   def new
     # @user = User.find(params[:id]) we should have access session[:user_id]
     @product = Product.new
