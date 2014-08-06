@@ -8,6 +8,8 @@ class ProductsController < ApplicationController
 
   def show
     @seller = User.find(@product.seller_id)
+    @user = User.find(session[:user_id])
+    @order = @user.orders.last
   end 
 
   def new

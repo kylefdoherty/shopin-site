@@ -6,6 +6,12 @@ Rails.application.routes.draw do
     resources :orders, only: [:show, :edit, :update]
   end
 
+  get '/users/:user_id/orders/:id', to: 'orders#show', as: 'order'
+
+  resources :line_items, only: [:create, :update, :destroy]
+
+
+
   root 'products#index'
 
   get '/login', to: 'products#index'

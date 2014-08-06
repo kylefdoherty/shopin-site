@@ -18,3 +18,5 @@
 - authorization for users w/ pundit 
 - upload images for products 
 - write tests for sessions and access control 
+- hide links if they're not vendor 
+- add amts to seller bank when product sold 
