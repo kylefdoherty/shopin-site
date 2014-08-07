@@ -3,13 +3,16 @@ KYLE:
 - increment/decrement product quantity when seller edits/buyer purchases
 
 EMILY:
-- add order to buyer history on show page   (USER SHOW PAGE)
+- DONE add order to buyer history on show page   (USER SHOW PAGE)
 - add order to seller list of orders        (USER SHOW PAGE)
 - users shipping info (on checkout), email?
+- DONE nav link to current user's most recent cart (open)
 
 AJAX/FRONT-END
 - ajaxify order edit page
 - sort by price (category?) (ajax)
+
+
 
 DOWN THE LINE:
 - checkout cart with pay stripe / add amts to seller bank when product sold?

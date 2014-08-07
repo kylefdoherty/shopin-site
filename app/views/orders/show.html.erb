@@ -1,5 +1,5 @@
-<h2><%= User.find(@order.buyer_id).name %>'s Order:</h2>
-<h3>Order Total: <%= @order.total %></h3>
+<h2><%= User.find(@order.buyer_id).name %>'s Current Order:</h2>
+<h3>Current Total: $<%= @order.total %></h3>
 <table style="width:150px">
   <tr>
     <th>Name</th>
