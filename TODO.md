@@ -1,6 +1,7 @@
 KYLE:
-- display quantity of product
-- increment/decrement product quantity when seller edits/buyer purchases
+
+- decrement product quantity when buyer purchases
+- ability to purchase multiple 
 
 EMILY:
 - DONE add order to buyer history on show page   (USER SHOW PAGE)
