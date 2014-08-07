@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @user = User.find(@order.buyer_id)
     if @order.update(order_hash)
+      # logic for cart products to show up on seller show page to ship
       @user.orders.create
       redirect_to(@user)
     else
