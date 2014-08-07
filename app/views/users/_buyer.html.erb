@@ -12,12 +12,12 @@
     </tr>
   <% order.line_items.each do |line_item| %>
     <% product = line_item.item %>
-    <% total += product.price %>
+    <% total += line_item.total %>
     <tr>
       <td><%= link_to product.title, product %></td>
       <td><%= product.description %></td>
-      <td><%= product.quantity %></td>
-      <td><%= product.price %></td>
+      <td><%= line_item.quantity %></td>
+      <td><%= line_item.total %></td>
     </tr>
   <% end %>
   </table>
