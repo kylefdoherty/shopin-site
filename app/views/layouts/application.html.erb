@@ -8,11 +8,17 @@
   <%= analytics_init if Rails.env.production? %>
 </head>
 <body>
-<%= render 'layouts/nav' %>
-<% if flash[:notice] %>
-  <div class= 'notice'><%= flash[:notice] %></div>
-<% end %>
-<%= yield %>
+  <%= render 'layouts/nav' %>
+    <% if flash[:notice] %>
+      <div class= 'notice'><%= flash[:notice] %></div>
+    <% end %>
+    
+  <div class="container">
+
+    
+    <%= yield %>
+
+  </div>
 
 </body>
 </html>

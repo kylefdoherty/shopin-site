@@ -1,15 +1,20 @@
 <h2><%= User.find(@order.buyer_id).name %>'s Current Order:</h2>
 <h3>Current Total: $<%= @order.total %></h3>
-<table style="width:150px">
+<h4><%= link_to 'Continue Shopping', root_path %></h4>
+<table style="width: 500px">
   <tr>
     <th>Name</th>
     <th>Price</th>
+    <th>Quantity</th>
+    <th>Total</th>
     <th><%= 'Delete' unless @order.closed %></th>
   </tr>
 <% @order.line_items.each do |li| %>
   <tr>
     <td><%= li.item.title %></td>
-    <td class="price"><%= li.item.price %></td>
+    <td><%= li.item.price %></td>
+    <td><%= li.quantity %></td>
+    <td><%= li.total %></td>
     <td><%= link_to('Remove', li, method: :delete) unless @order.closed %></td>
   </tr>
 <% end %>
