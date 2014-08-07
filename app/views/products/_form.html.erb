@@ -20,8 +20,13 @@
   </p>  
   <p>
     <b>Product Description</b><br>
-    <%= f.text_field :description %>
+    <%= f.text_area :description %>
   </p>
+  <p>
+    <b>Product Quantity</b><br>
+    <%= f.number_field :quantity %>
+  </p>
+
   <p>
     <%= f.submit %>
   </p>

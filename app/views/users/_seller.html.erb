@@ -1,7 +1,6 @@
 <div class="seller-orders">
   <h3>Items Pending Fulfillment:</h3>
   <% @user.fulfillments.uniq.each do |fulfill| %>
-    <%# fulfillments currently populates with one order per line item :( %>
     <% buyer = User.find(fulfill.buyer_id) %>
     <h4>Order Total: $<%= fulfill.total %> | 
     Buyer Name: <%= buyer.name %> | 
@@ -23,17 +22,19 @@
 
 <div class='seller-products'>
   <h2>Products | <%= link_to 'Add product', new_product_path %></h2>
-  <table class="pretty">
+  <table style="width: 300px">
     <tr>
       <th>Name</th>
       <th>Price</th>
+      <th>Quantity</th>
     </tr>
-  <% @user.products.each do |product| %>
-    <tr>
-      <td><%= link_to product.title, product %></td>
-      <td class="price"><%= product.price %></td>
-      <td><%= link_to 'Edit', edit_product_path%></td>
-    </tr>
-  <% end %>
+    <% @user.products.each do |product| %>
+      <tr>
+        <td><%= link_to product.title, product %></td>
+        <td><%= product.price %></td>
+        <td><%= product.quantity %></td>
+        <td><%= link_to 'Edit', edit_product_path%></td>
+      </tr>
+    <% end %>
   </table>
 </div>

@@ -3,7 +3,7 @@
 <% @user.orders.select {|o| o.closed}.each_with_index do |order, index| %>
   <% total = 0 %>
   <h4>Order #<%= index+1 %></h4>
-  <table class="pretty">
+  <table class="pretty" >
     <tr>
       <th>Title</th>
       <th>Description</th>
@@ -12,12 +12,12 @@
     </tr>
   <% order.line_items.each do |line_item| %>
     <% product = line_item.item %>
-    <% total += product.price %>
+    <% total += line_item.total %>
     <tr>
       <td><%= link_to product.title, product %></td>
       <td><%= product.description %></td>
-      <td><%= product.quantity %></td>
-      <td><%= product.price %></td>
+      <td><%= line_item.quantity %></td>
+      <td><%= line_item.total %></td>
     </tr>
   <% end %>
   </table>

@@ -1,7 +1,6 @@
 class LineItemsController < ApplicationController
 
   def create
-    # redirect_to "auth/amazon" unless params[:line_item][:order_id]
     @line_item = LineItem.create(lineitem_params)
     @order = @line_item.order
     @user = User.find(@order.buyer_id)
@@ -11,7 +10,6 @@ class LineItemsController < ApplicationController
     else
       render :edit
     end
-
   end 
 
   def destroy
@@ -28,7 +26,7 @@ class LineItemsController < ApplicationController
 
   private
    def lineitem_params
-      params.require(:line_item).permit(:item_id, :order_id)
+      params.require(:line_item).permit(:item_id, :order_id, :quantity)
     end
 
 

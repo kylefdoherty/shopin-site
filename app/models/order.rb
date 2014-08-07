@@ -5,7 +5,7 @@ class Order < ActiveRecord::Base
   has_many :items, through: :line_items
 
   def total
-    self.items.collect {|i| i.price}.reduce(:+)
+    self.line_items.collect {|i| i.total}.reduce(:+)
   end
 
 end
