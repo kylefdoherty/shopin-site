@@ -2,8 +2,6 @@
 <h2><%= @user.email %></h2>
 <h3>User type: <%= @user.vendor? ? 'Vendor' : 'Basic User' %></h3>
 
-
-
 <% if !@user.products.empty?  %>
   <%= render "seller" %>
 <% end %>

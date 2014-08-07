@@ -7,12 +7,14 @@ EMILY:
 - add order to seller list of orders        (USER SHOW PAGE)
 - users shipping info (on checkout), email?
 - DONE nav link to current user's most recent cart (open)
+- DONE link to edit from user show page
+- DONE link to add product from user show
+
+
 
 AJAX/FRONT-END
 - ajaxify order edit page
 - sort by price (category?) (ajax)
-
-
 
 DOWN THE LINE:
 - checkout cart with pay stripe / add amts to seller bank when product sold?
