@@ -18,7 +18,6 @@ class OrdersController < ApplicationController
     end 
 
     if @order.update(order_hash)
-
       @user.orders.create
       redirect_to(@user)
     else
