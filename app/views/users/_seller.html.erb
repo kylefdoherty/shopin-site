@@ -1,14 +1,17 @@
 <h2>Products | <%= link_to 'Add product', new_product_path %>
 </h2>
-<table class="pretty">
+<table style="width: 300px">
   <tr>
     <th>Name</th>
     <th>Price</th>
+    <th>Quantity</th>
+
   </tr>
 <% @user.products.each do |product| %>
   <tr>
     <td><%= link_to product.title, product %></td>
-    <td class="price"><%= product.price %></td>
+    <td><%= product.price %></td>
+    <td><%= product.quantity %></td>
   </tr>
 <% end %>
 </table>

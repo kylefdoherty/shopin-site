@@ -1,22 +1,5 @@
 KYLE:
 
-- decrement product quantity when buyer purchases
-
-- add number_field to product page 
-- send that value to the order update 
-- show that quantity on the order page 
-- on checkout decrement that product quantity by that much 
-
-
-
-
-
-
-
-
-
-- ability to purchase multiple 
-
 EMILY:
 - DONE add order to buyer history on show page   (USER SHOW PAGE)
 - add order to seller list of orders        (USER SHOW PAGE)

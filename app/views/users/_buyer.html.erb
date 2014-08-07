@@ -3,7 +3,7 @@
 <% @user.orders.select {|o| o.closed}.each_with_index do |order, index| %>
   <% total = 0 %>
   <h4>Order #<%= index+1 %></h4>
-  <table class="pretty">
+  <table class="pretty" >
     <tr>
       <th>Title</th>
       <th>Description</th>
