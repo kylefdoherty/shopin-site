@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140807161939) do
+ActiveRecord::Schema.define(version: 20140807183534) do
 
   create_table "line_items", force: true do |t|
     t.integer  "item_id"
@@ -26,21 +26,34 @@ ActiveRecord::Schema.define(version: 20140807161939) do
 
   create_table "orders", force: true do |t|
     t.integer  "buyer_id"
-    t.boolean  "closed"
+    t.boolean  "closed",     default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "orders", ["buyer_id"], name: "index_orders_on_buyer_id"
 
+  create_table "product_tags", force: true do |t|
+    t.integer  "product_id"
+    t.integer  "tag_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "products", force: true do |t|
-    t.string   "title"
-    t.float    "price"
-    t.text     "description"
+    t.string   "title",       default: ""
+    t.float    "price",       default: 0.0
+    t.text     "description", default: ""
     t.integer  "seller_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "quantity",    default: 0
+  end
+
+  create_table "tags", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

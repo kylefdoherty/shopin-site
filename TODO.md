@@ -1,28 +1,20 @@
 KYLE:
+- ajaxify order edit page
 
 EMILY:
-- DONE add order to buyer history on show page   (USER SHOW PAGE)
-- add order to seller list of orders        (USER SHOW PAGE)
-- users shipping info (on checkout), email?
-- DONE nav link to current user's most recent cart (open)
-- DONE link to edit from user show page
-- DONE link to add product from user show
-
-
-
-AJAX/FRONT-END
-- ajaxify order edit page
 - sort by price (category?) (ajax)
+
+
 
 DOWN THE LINE:
 - checkout cart with pay stripe / add amts to seller bank when product sold?
+- bulk upload products
+- sort/filter seller's pending orders
+- upload images for products
+- slugify urls: products, users
+- auto search
+
 - notify buyer & seller(s) when order is completed
 - validate editable user attributes
 - create dashboard for sellers : most popular products, sales over time
-- sort/filter seller's pending orders
-- authorization for users w/ pundit
-- upload images for products
-- slugify urls: products, users
-- bulk upload products
-- auto search
 - write tests for sessions and access control
