@@ -2,9 +2,8 @@
 <h3><%= @product.price %></h3>
 <h3><%= @seller.name %></h3>
 <p><%= @product.description %></p>
-<% if @user && @user == @seller %>
-  <p><%= link_to "Edit", edit_product_path %></p>
-<% elsif current_user %>
+<p><%= link_to "Edit", edit_product_path if @user && @user == @seller %></p>
+<% if current_user %>
   <%= form_for LineItem.new do |f|  %>
     <%= f.hidden_field(:item_id, value: @product.id) %>
     <%= f.hidden_field(:order_id, value: @order.id) %>

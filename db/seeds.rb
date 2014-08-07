@@ -10,19 +10,19 @@
 user1 = User.create(name: "user1", vendor: true)
 user2 = User.create(name: "user2", vendor: true)
 user3 = User.create(name: "user3", vendor: true)
-user4 = User.create(name: "user4", vendor: false)
-user5 = User.create(name: "user5", vendor: false)
+user4 = User.create(name: "user4")
+user5 = User.create(name: "user5")
 
 product1 = Product.create(title: "product1", price: 10.00, seller_id: 1)
 product2 = Product.create(title: "product2", price: 15.00, seller_id: 2)
 product3 = Product.create(title: "product3", price: 20.00, seller_id: 3)
-product4 = Product.create(title: "product4", price: 30.00, seller_id: 1)
-product5 = Product.create(title: "product5", price: 40.00, seller_id: 2)
+product4 = Product.create(title: "product4", price: 30.00, seller_id: 6)
+product5 = Product.create(title: "product5", price: 40.00, seller_id: 6)
 
 
 cart1 = Order.create(buyer_id: 1, closed: true)
-cart2 = Order.create(buyer_id: 2, closed: false)
-cart3 = Order.create(buyer_id: 2, closed: false)
+cart2 = Order.create(buyer_id: 2)
+cart3 = Order.create(buyer_id: 2)
 cart4 = Order.create(buyer_id: 3, closed: true)
 
 thing1 = LineItem.create(item_id: 1, order_id: 1)
