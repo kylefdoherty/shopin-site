@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.1.2'
+
 gem 'omniauth-amazon'
 gem 'figaro'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
