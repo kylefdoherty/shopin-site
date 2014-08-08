@@ -16,7 +16,7 @@ AJAX/FRONT-END
 
 DOWN THE LINE:
 - checkout cart with pay stripe / add amts to seller bank when product sold?
-- notify buyer & seller(s) when order is completed
+- email buyer & seller(s) when order is completed
 - validate editable user attributes
 - create dashboard for sellers : most popular products, sales over time
 - authorization for users w/ pundit
@@ -25,3 +25,4 @@ DOWN THE LINE:
 - bulk upload products
 - auto search
 - write tests for sessions and access control
+- how to handle if item quantity reaches zero or price changes before user completes checkout - deal with after integrate stripe

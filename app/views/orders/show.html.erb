@@ -1,5 +1,5 @@
 <h2><%= User.find(@order.buyer_id).name %>'s Current Order:</h2>
-<h3>Current Total: $<%= @order.total %></h3>
+<h3 id="order_total">Current Total: $<span><%= @order.total %></span></h3>
 <h4><%= link_to 'Continue Shopping', root_path %></h4>
 <table style="width: 500px">
   <tr>
@@ -10,12 +10,18 @@
     <th><%= 'Delete' unless @order.closed %></th>
   </tr>
 <% @order.line_items.each do |li| %>
-  <tr>
+  <tr id='line_item_<%= li.id %>'>
     <td><%= li.item.title %></td>
     <td><%= li.item.price %></td>
-    <td><%= li.quantity %></td>
-    <td><%= li.total %></td>
-    <td><%= link_to('Remove', li, method: :delete) unless @order.closed %></td>
+    <td>
+      <%= form_for li, :remote => true do |f|  %>
+      <%= f.select :quantity, (0..li.item.quantity)%>
+      <% end %>
+    </td>
+    <td id="line_item_total_<%= li.id %>"><%= li.total %></td>
+    <td>
+      <%= button_to "Remove", li, :remote => true, :method => :delete %>
+    </td>
   </tr>
 <% end %>
 </table>
