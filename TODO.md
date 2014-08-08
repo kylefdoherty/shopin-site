@@ -19,6 +19,7 @@ DOWN THE LINE:
 - email buyer & seller(s) when order is completed
 - validate editable user attributes
 - create dashboard for sellers : most popular products, sales over time
+- sort/filter seller's pending orders
 - authorization for users w/ pundit
 - upload images for products
 - slugify urls: products, users

@@ -1,18 +1,40 @@
-<h2>Products | <%= link_to 'Add product', new_product_path %>
-</h2>
-<table style="width: 300px">
-  <tr>
-    <th>Name</th>
-    <th>Price</th>
-    <th>Quantity</th>
+<div class="seller-orders">
+  <h3>Items Pending Fulfillment:</h3>
+  <% @user.fulfillments.uniq.each do |fulfill| %>
+    <% buyer = User.find(fulfill.buyer_id) %>
+    <h4>Order Total: $<%= fulfill.total %> | 
+    Buyer Name: <%= buyer.name %> | 
+    Shipping Address: <%= buyer.address %></h4>
+    <table class="pretty">
+      <tr>
+        <th>Item Name</th>
+        <th>Item Quantity</th>
+      </tr>
+      <% fulfill.items.each do |item| %>
+        <tr>
+          <td><%= item.title %></td>
+          <td><%= item.quantity %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+</div>
 
-  </tr>
-<% @user.products.each do |product| %>
-  <tr>
-    <td><%= link_to product.title, product %></td>
-    <td><%= product.price %></td>
-    <td><%= product.quantity %></td>
-  </tr>
-<% end %>
-</table>
-
+<div class='seller-products'>
+  <h2>Products | <%= link_to 'Add product', new_product_path %></h2>
+  <table style="width: 300px">
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+    </tr>
+    <% @user.products.each do |product| %>
+      <tr>
+        <td><%= link_to product.title, product %></td>
+        <td><%= product.price %></td>
+        <td><%= product.quantity %></td>
+        <td><%= link_to 'Edit', edit_product_path%></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
