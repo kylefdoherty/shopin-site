@@ -11,7 +11,7 @@
         <li><%= link_to 'Cart', [current_user, current_user.orders.last] %></li>
         <li><%= link_to "Log Out", logout_path %></li>
       <% else %>
-        <li><%= link_to "Log in with Amazon", "/auth/amazon" %></li>
+        <li><%= link_to "Log in with Facebook", "/auth/facebook" %></li>
       <% end %>
     <ul>
 

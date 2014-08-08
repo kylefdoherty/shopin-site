@@ -4,7 +4,10 @@ class ProductsController < ApplicationController
   skip_before_action :authentication_required, only: [:index, :show]
 
   def index
-    @products = Product.all
+    @search = Product.search do
+      fulltext params[:search]
+    end
+    @products = @search.results
     @tags = Tag.all
   end
 

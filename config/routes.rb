@@ -18,6 +18,6 @@ Rails.application.routes.draw do
   get '/login', to: 'products#index'
   get '/logout', to: 'sessions#destroy'
 
-  get '/auth/amazon/callback', to: 'sessions#create'
+  get '/auth/facebook/callback', to: 'sessions#create'
 
 end

@@ -2,7 +2,9 @@ source 'https://rubygems.org'
 
 ruby '2.1.2'
 
-gem 'omniauth-amazon'
+gem 'sunspot_rails'
+gem 'sunspot_solr'
+gem 'omniauth-facebook'
 gem 'figaro'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
