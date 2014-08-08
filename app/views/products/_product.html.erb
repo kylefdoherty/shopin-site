@@ -1,3 +1,4 @@
-<% tag_string = product.tags.collect {|tag| tag.name }.join(', ') %>
-  <p class='<%= tag_string %>'
-    ><%= link_to product.title, product %></p>
+<% tag_string = product.product_tags.collect do |product_tag| %>
+  <% "tag#{product_tag.tag_id}" %>
+<% end.join(' ') %>
+<p class='<%= tag_string %>'><%= link_to product.title, product %></p>

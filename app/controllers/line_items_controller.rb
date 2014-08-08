@@ -11,6 +11,23 @@ class LineItemsController < ApplicationController
       render :edit
     end
   end 
+  
+  def update
+   @line_item = LineItem.find(params[:id])
+   @line_item.quantity = params[:line_item][:quantity]
+   @line_item.save
+   @order = @line_item.order
+   @user = User.find(@order.buyer_id)
+
+   if @line_item
+      respond_to do |format|
+        format.html 
+        format.js
+      end
+    else
+      render :edit
+   end
+  end  
 
   def destroy
     @line_item = LineItem.find(params[:id])
@@ -18,7 +35,14 @@ class LineItemsController < ApplicationController
     @user = User.find(session[:user_id])
     @line_item.destroy
 
-    redirect_to :back
+    respond_to do |format|
+      format.html 
+      format.js
+    end
+
+    
+    
+    
   end
 
 

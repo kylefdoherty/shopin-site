@@ -8,7 +8,7 @@
   <%= form_for LineItem.new do |f|  %>
     <%= f.hidden_field(:item_id, value: @product.id) %>
     <%= f.hidden_field(:order_id, value: @order.id) %>
-    <%= f.number_field(:quantity, value: 1, :min => 1, :max => @product.quantity) %>
+    <%= f.select :quantity, options_for_select((0..@product.quantity)) %> 
     <%= f.submit 'Buy' %>
   <% end %>
 <% else %>
