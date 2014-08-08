@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20140807183534) do
-=======
 ActiveRecord::Schema.define(version: 20140808041648) do
->>>>>>> 91b02aa6055849d5a1ed30e32f3d322942296503
 
   create_table "line_items", force: true do |t|
     t.integer  "item_id"
