@@ -20,7 +20,6 @@ class ProductsController < ApplicationController
   end
 
   def create
-
     @product = Product.create(product_hash)
     @product.seller_id = session[:user_id]
     @product.save
@@ -47,7 +46,7 @@ class ProductsController < ApplicationController
     end
 
     def product_hash
-      params.require(:product).permit(:title, :price, :description, :quantity)
+      params.require(:product).permit(:title, :price, :description, :quantity, :product_image)
     end
 
     def authorize_vendor!
