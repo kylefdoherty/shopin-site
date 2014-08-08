@@ -26,7 +26,7 @@ class LineItemsController < ApplicationController
       end
     else
       render :edit
-   end
+     end
   end  
 
   def destroy

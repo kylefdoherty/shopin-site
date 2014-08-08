@@ -2,3 +2,4 @@
   <% "tag#{product_tag.tag_id}" %>
 <% end.join(' ') %>
 <p class='<%= tag_string %>'><%= link_to product.title, product %></p>
+<%= image_tag product.product_image_url.to_s %><br><br>
