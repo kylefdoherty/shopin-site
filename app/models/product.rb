@@ -5,14 +5,6 @@ class Product < ActiveRecord::Base
   has_many :product_tags
   has_many :tags, through: :product_tags
 
-  # searchable do
-  #   text :title, :description
-  #   text :tags do
-  #     tags.map(&:name)
-  #   end
-  #   double :price
-  # end
-
   # validates_presence_of   :product_image
   # validates_integrity_of  :product_image
   # validates_processing_of :product_image

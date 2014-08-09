@@ -2,8 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.1.2'
 
-gem 'sunspot_rails'
-gem 'sunspot_solr'
+gem 'twitter-typeahead-rails'
 gem 'omniauth-facebook'
 gem 'figaro'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

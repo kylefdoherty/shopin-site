@@ -1,11 +1,11 @@
+<!-- filter by tag -->
 <%= collection_select(:product_tag, :tag_id, @tags, :id, :name, prompt: true) %>
-<%# form_tag products_path, method: :get do %>
-  <!-- <p> -->
-    <%# text_field_tag :search, params[:search] %>
-    <%# submit_tag "Search", name: nil %>
-  <!-- </p> -->
-<%# end %>
 
-<div class="products">
+<!-- <div class="products tags"> -->
+  <!-- <input class="typeahead" type="text" placeholder="Products & tags"> -->
+<!-- </div> -->
+
+<!-- display all products (or filtered by div class in product.js) -->
+<div class="display">
   <%= render @products %>
 </div>

@@ -4,11 +4,6 @@ class ProductsController < ApplicationController
   skip_before_action :authentication_required, only: [:index, :show]
 
   def index
-    # @search = Product.search do
-    #   fulltext params[:search]
-    #   with(:price).less_than(Time.zone.now)
-    # end
-    # @products = @search.results
     @products = Product.all
     @tags = Tag.all
   end

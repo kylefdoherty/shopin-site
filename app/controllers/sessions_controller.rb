@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_action :authentication_required, only: :create
-  # skip_before_action :authentication_required, only: [:create, :destroy] => in case you 'rake db:reset' before logout
+  # skip_before_action :authentication_required, only: [:create, :destroy]
 
   def create
     @user = User.find_by_provider_and_uid(auth_hash[:provider], auth_hash[:uid]) || User.create_with_omniauth(auth_hash)

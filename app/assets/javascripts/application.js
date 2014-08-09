@@ -12,5 +12,18 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require ddlevelsmenu
+//= require filter
+//= require html5shiv
+//= require jquery.carouFredSel-6.2.1-packed
+//= require custom
+//= require jquery.countdown.min
+//= require jquery.navgoco.min
+//= require jquery.themepunch.plugins.min
+//= require jquery.themepunch.revolution.min
+//= require respond.min
+//= require twitter/typeahead.min
 //= require bootstrap
-//= require_tree .
+//= require line_items
+//= require product
+//= require typeahead

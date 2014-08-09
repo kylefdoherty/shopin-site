@@ -10,7 +10,13 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+ *= require animate.min
+ *= require ddlevelsmenu-base
+ *= require ddlevelsmenu-topbar
+ *= require font-awesome.min
+ *= require jquery.countdown
+ *= require settings
+ *= require style
  *= require_self
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.eot"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.woff"
