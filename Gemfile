@@ -2,8 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.1.2'
 
-gem 'sunspot_rails'
-gem 'sunspot_solr'
+
 gem 'omniauth-facebook'
 gem 'figaro'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -29,6 +28,10 @@ gem 'spring',        group: :development
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
+
+
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
