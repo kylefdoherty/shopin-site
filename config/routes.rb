@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :products
-
+  resources :charges, only: [:new, :create]
   resources :users , only: [:show, :edit, :update, :destroy] do
     resources :orders, only: [:show, :edit, :update]
   end
