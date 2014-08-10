@@ -15,7 +15,7 @@
             <% if cart.total > 0 %>
               <%= link_to "#{cart.line_items.count} - $#{cart.total}", [current_user, current_user.orders.last] %>
             <% else %>
-              <%= link_to '<i class="fa fa-shopping-cart:before"></i> Cart'.html_safe, [current_user, cart] %>
+              <%= link_to '<i class="fa fa-shopping-cart"></i> Cart'.html_safe, [current_user, cart] %>
             <% end %>
             <%= link_to 'Account', current_user %>
             <%= link_to "Log Out", logout_path %>
