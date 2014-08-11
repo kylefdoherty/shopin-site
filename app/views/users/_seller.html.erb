@@ -1,40 +1,101 @@
-<div class="seller-orders">
-  <h3>Items Pending Fulfillment:</h3>
+<hr />
+<div class="col-md-9">
+  <h3>Orders Pending Fulfillment:</h3><br>
+    <!-- Your details -->
+
   <% @user.fulfillments.uniq.each do |fulfill| %>
     <% buyer = User.find(fulfill.buyer_id) %>
-    <h4>Order Total: $<%= fulfill.total %> | 
-    Buyer Name: <%= buyer.name %> | 
-    Shipping Address: <%= buyer.address %></h4>
-    <table class="pretty">
-      <tr>
-        <th>Item Name</th>
-        <th>Item Quantity</th>
-      </tr>
-      <% fulfill.items.each do |item| %>
+
+
+    <h4>Order Placed: <%= fulfill.updated_at.strftime('%b %d, %Y') %></h4>
+
+    <table class="table table-striped tcart">
+      <thead>
         <tr>
-          <td><%= item.title %></td>
-          <td><%= item.quantity %></td>
+          <th>Date</th>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Status</th>
         </tr>
-      <% end %>
-    </table>
-  <% end %>
+      </thead>
+   <tbody>
+    <% fulfill.line_items.each do |li| %>
+     <tr>
+       <td><%= li.updated_at.strftime('%b %d, %Y') %></td>
+       <td><%= li.id %></td>
+       <td><%= li.item.title %></td>
+       <td><%= li.item.price_dollars %></td>
+       <td><%= li.quantity %></td>
+       <td><%= li.total %></td>
+       <td>Add ability to select: Processing, Shipped, Completed</td>
+     </tr>
+     <% end %>
+     <tr>
+        <td colspan="5"><strong>Total</strong></td>
+        <td><strong>Get lineitems for fulfilments working so each can have a total.</strong></td>
+        <td></td>
+     </tr>                                              
+   </tbody>
+    </table><br>
+
+    <% end %>
 </div>
 
-<div class='seller-products'>
-  <h2>Products | <%= link_to 'Add product', new_product_path %></h2>
-  <table style="width: 300px">
-    <tr>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Quantity</th>
-    </tr>
+
+
+<hr />
+<div class="col-md-9">
+  <h3>Your Products:</h3><br>
+    <!-- Your details -->
+    <table class="table table-striped tcart">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Image</th>
+          <th>Price</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+   
+   <tbody>
     <% @user.products.each do |product| %>
-      <tr>
-        <td><%= link_to product.title, product %></td>
+     <tr>
+       <td><%= link_to product.title, product %></td>
+       <td><%= image_tag product.product_image_url(:small_thumb).to_s %><br></td>
         <td><%= product.price_dollars %></td>
         <td><%= product.quantity %></td>
         <td><%= link_to 'Edit', edit_product_path(product) %></td>
-      </tr>
+     </tr>                                      
     <% end %>
-  </table>
+   </tbody>
+  </table><br>
+
+   <h4><%= link_to 'Add New Product', new_product_path %></h4>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

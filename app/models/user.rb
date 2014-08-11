@@ -30,11 +30,6 @@ class User < ActiveRecord::Base
     closed_orders.last
   end 
 
-
-
-
-
-
   def countries
     ["Afghanistan",
       "Aland Islands",
