@@ -13,9 +13,9 @@ User.create(name: "user3", vendor: true)
 User.create(name: "user4")
 User.create(name: "user5")
 
-Product.create(title: "Kibble'n'Bits", quantity: 8, price_cents: 1025, seller_id: 1, description: 'A scrumptious canine treat, helps fight plaque')
-Product.create(title: "Chow Down", quantity: 4, price_cents: 1590, seller_id: 2, description: 'Non-GMO wet food for a balanced doggie diet')
-Product.create(title: "Horse Bully Sticks", quantity: 5, price_cents: 1995, seller_id: 3, description: 'Forget those measly bull penises')
+Product.create(title: "Kibble'n'Bits", quantity: 8, price_cents: 1025, seller_id: 7, description: 'A scrumptious canine treat, helps fight plaque')
+Product.create(title: "Chow Down", quantity: 4, price_cents: 1590, seller_id: 7, description: 'Non-GMO wet food for a balanced doggie diet')
+Product.create(title: "Horse Bully Sticks", quantity: 5, price_cents: 1995, seller_id: 7, description: 'Forget those measly bull penises')
 Product.create(title: "Himalayan Kong", quantity: 9, price_cents: 3075, seller_id: 6, description: 'Made of yak cheese. Stronger than vulcanized rubber')
 Product.create(title: "Tugga War", quantity: 2, price_cents: 3999, seller_id: 6, description: 'Why yes, you WILL pay too much for this hemp rope knot')
 

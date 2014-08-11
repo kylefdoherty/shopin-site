@@ -65,9 +65,9 @@
      <tr>
        <td><%= link_to product.title, product %></td>
        <td><%= image_tag product.product_image_url(:small_thumb).to_s %><br></td>
-        <td><%= product.price_dollars %></td>
-        <td><%= product.quantity %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
+       <td><%= product.price_pretty %></td>
+       <td><%= product.quantity %></td>
+       <td><%= link_to 'Edit', edit_product_path(product) %></td>
      </tr>                                      
     <% end %>
    </tbody>

@@ -16,7 +16,8 @@
        <td><%= li.updated_at.strftime('%b %d, %Y') %></td>
        <td><%= li.id %></td>
        <td><%= li.item.title %></td>
-       <td>$<%= li.item.price_dollars %></td>
+       <!-- <td>$<%# li.item.price_dollars %></td> -->
+       <td>$<%= li.item.price_pretty %></td>
        <td><%= li.quantity %></td>
        <td>$<%= li.total %></td>
        <td><%= ['Completed','Shipped','Processing'].sample %></td>

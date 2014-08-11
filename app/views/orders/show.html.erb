@@ -13,7 +13,8 @@
 <% @order.line_items.each do |li| %>
   <tr id='line_item_<%= li.id %>'>
     <td><%= li.item.title %></td>
-    <td><%= number_with_precision(li.item.price_dollars, precision: 2) %></td>
+    <!-- <td><%# number_with_precision(li.item.price_dollars, precision: 2) %></td> -->
+    <td><%= li.item.price_pretty %></td>
     <td>
       <%= form_for li, :remote => true do |f|  %>
       <%= f.select :quantity, (0..li.item.quantity)%>
@@ -27,7 +28,7 @@
 <% end %>
 </table>
 
-<% unless @order.closed %>
+<% unless @order.closed && !@order.line_items.empty? %>
   <%= form_for [@user, @order] do |f| %>
     <%= hidden_field(:id, value: @order.id) %>
     <%= f.hidden_field(:user_id, value: @order.buyer_id) %>

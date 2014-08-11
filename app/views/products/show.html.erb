@@ -9,6 +9,7 @@
                 <%= image_tag @product.product_image_url(:thumb).to_s %><br>
               </div><!-- item-image -->
             </div><!-- col-md-4 col-xs-5 -->
+            <div class='col-md-2'></div>
             <div class="col-md-5 col-xs-7">
               <!-- Title -->
               <h4><%= @product.title %><%= link_to " (Edit)", edit_product_path if @user && @user == @seller %></h4>
@@ -19,7 +20,8 @@
                 </tr>
                 <tr>
                   <td><strong>Price: </strong></td>
-                  <td><%= @product.price_dollars %></td>
+                  <!-- <td><%# @product.price_dollars %></td> -->
+                  <td><%= @product.price_pretty %></td>
                 </tr>
                 <tr>
                   <td><strong>Availability:&nbsp;</strong></td>

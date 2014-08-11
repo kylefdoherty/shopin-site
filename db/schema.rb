@@ -67,10 +67,17 @@ ActiveRecord::Schema.define(version: 20140810193639) do
     t.boolean  "vendor",     default: false
     t.string   "address"
     t.string   "phone",      default: ""
+<<<<<<< HEAD
     t.string   "country",    default: ""
     t.string   "zip",        default: ""
     t.string   "city",       default: ""
     t.string   "state",      default: ""
+=======
+    t.string   "country"
+    t.string   "zip"
+    t.string   "city",       default: ""
+    t.string   "state"
+>>>>>>> f5d8d48dc3f7d9502ed47d0f71b71d59cf260264
   end
 
 end
