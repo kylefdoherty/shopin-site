@@ -29,7 +29,8 @@
 
   <p>
     <b>Product price</b><br>
-    <%= f.text_field :price %>
+    <%= f.text_field :price_dollars, value: (number_with_precision(f.object.price_dollars, precision: 2 || 0))  %>
+    
   </p>  
   <p>
     <b>Product Description</b><br>

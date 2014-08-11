@@ -4,6 +4,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end 
 
+  def orders_summary
+    
+    @user = User.find(params[:id])
+  end 
+
   def new
   end 
 
@@ -25,7 +30,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:name, :email, :vendor)
+      params.require(:user).permit(:name, :email, :vendor, :address, :zip, :phone, :country, :city, :state)
     end 
 
 end

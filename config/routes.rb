@@ -4,12 +4,15 @@ Rails.application.routes.draw do
 
   resources :products
   resources :charges, only: [:new, :create]
+
   resources :users , only: [:show, :edit, :update, :destroy] do
     resources :orders, only: [:show, :edit, :update]
   end
-  resources :line_items, only: [:create, :update, :destroy]
 
   get '/users/:user_id/orders/:id', to: 'orders#show', as: 'order'
+  get '/users/:id/orders_summary', to: 'users#orders_summary', as: 'user_orders_summary'
+
+  resources :line_items, only: [:create, :update, :destroy]
 
   get '/login', to: 'products#index'
   get '/logout', to: 'sessions#destroy'

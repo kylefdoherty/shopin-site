@@ -1,4 +1,5 @@
 class Product < ActiveRecord::Base
+  include ActionView::Helpers::NumberHelper
   mount_uploader :product_image, ProductImageUploader
   has_many :line_items, foreign_key: :item_id
   belongs_to :seller, class_name: :user
@@ -8,5 +9,15 @@ class Product < ActiveRecord::Base
   # validates_presence_of   :product_image
   # validates_integrity_of  :product_image
   # validates_processing_of :product_image
+
+
+
+  def price_dollars
+    number_to_currency(price_cents.to_d/100) if price_cents
+  end
+
+  def price_dollars=(dollars)
+    self.price_cents = dollars.to_d*100 if dollars.present?
+  end  
 
 end

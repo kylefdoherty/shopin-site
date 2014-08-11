@@ -1,25 +1,45 @@
-<h2>Order History</h2>
-  <!--  -->
-<% @user.orders.select {|o| o.closed}.each_with_index do |order, index| %>
-  <% total = 0 %>
-  <h4>Order #<%= index+1 %></h4>
-  <table class="pretty" >
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Quantity</th>
-      <th>Price</th>
-    </tr>
-  <% order.line_items.each do |line_item| %>
-    <% product = line_item.item %>
-    <% total += line_item.total %>
-    <tr>
-      <td><%= link_to product.title, product %></td>
-      <td><%= product.description %></td>
-      <td><%= line_item.quantity %></td>
-      <td><%= line_item.total %></td>
-    </tr>
-  <% end %>
-  </table>
-  <h4>Total: $<%= total %></h4><br/>
-<% end %>
+<hr />
+<div class="col-md-9">
+  <h3>Order History</h3><br>
+    <!-- Your details -->
+
+  <% @user.closed_orders.each do |order| %>
+
+    <h4>Order Placed: <%= order.updated_at.strftime('%b %d, %Y') %></h4>
+
+    <table class="table table-striped tcart">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+   <tbody>
+    <% order.line_items.each do |li| %>
+     <tr>
+       <td><%= li.updated_at.strftime('%b %d, %Y') %></td>
+       <td><%= li.id %></td>
+       <td><%= li.item.title %></td>
+       <td>$<%= li.item.price_dollars %></td>
+       <td><%= li.quantity %></td>
+       <td>$<%= li.total %></td>
+       <td><%= ['Completed','Shipped','Processing'].sample %></td>
+     </tr>
+     <% end %>
+     <tr>
+        <td colspan="5"><strong>Total</strong></td>
+        <td><strong><%= order.total %></strong></td>
+        <td></td>
+     </tr>                                              
+   </tbody>
+    </table><br>
+
+    <% end %>
+</div>
+
+

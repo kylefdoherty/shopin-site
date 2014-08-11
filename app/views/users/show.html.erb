@@ -1,9 +1,61 @@
-<h2>Name: <%= @user.name %> | <%= link_to 'Edit', edit_user_path %></h2>
-<h3>User type: <%= @user.vendor? ? 'Vendor' : 'Basic User' %> | 
-Email: <%= @user.email %> | Address: <%= @user.address %></h3>
-
-<% if !@user.products.empty?  %>
-  <%= render "seller" %>
-<% end %>
-  
-<%= render "buyer" %>
+  <!-- Page title -->
+      <div class="page-title">
+         <div class="container">
+            <h2><i class="fa fa-desktop color"></i> <%= @user.name %></h2>
+            <hr />
+         </div>
+      </div>
+      <!-- Page title -->
+      
+      <!-- Page content -->
+      
+      <div class="account-content">
+         <div class="container">
+            
+            <div class="row">
+               <div class="col-md-3">
+                  <div class="sidey">
+                     <ul class="nav">
+                         <li><a href="#" id="my-account">My Account</a></li>
+                         <!-- <li><a href="wishlist.html">Wish List</a></li> -->
+                         <li><a href="#" id="order-history">Order History</a></li>  
+                         <% if @user.vendor? %>       
+                           <li><a href="#" id="seller-account">Seller Account</a></li> 
+                         <% end %>        
+                        <li><a href="#" id="edit-account">Edit Account</a></li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="col-md-9">
+                  <h3><i class="fa fa-user color"></i> &nbsp;My Account</h3>
+                  <!-- Your details -->
+                   <div class="address">
+                     <!-- Your name -->
+                     <strong><%= @user.name %></strong><br>
+                     <!-- Address -->
+                     <address>
+                       <%= @user.address %><br>
+                       <% unless @user.city.empty? %>
+                        <%= @user.city %>, <%= @user.state %> <%= @user.zip %><br>
+                       <% end %>
+                       <!-- Phone number -->
+                       <% unless @user.phone.empty? %>
+                        <abbr title="Phone">P:</abbr> <%= @user.format_phone %><br />
+                       <% end %>
+                       <a href="mailto:#"><%= @user.email %></a>
+                     </address>
+                   </div>
+                  <% if !@user.closed_orders.empty? %>
+                    <div id="recent_purchases"> <%= render "recent_purchases" %></div>
+                  <% end %>
+                  <div id="buyer"> <%= render "buyer" %></div>
+                  <div id="edit"><%= render "form" %></div>
+                  <div id="seller"><%= render "seller" %></div>
+                  
+ 
+               </div>
+            </div>
+            
+            <div class="sep-bor"></div>
+         </div>
+      </div>
