@@ -66,10 +66,10 @@ ActiveRecord::Schema.define(version: 20140810193639) do
     t.string   "uid"
     t.boolean  "vendor",     default: false
     t.string   "address"
-    t.string   "phone"
+    t.string   "phone",      default: ""
     t.string   "country"
     t.string   "zip"
-    t.string   "city"
+    t.string   "city",       default: ""
     t.string   "state"
   end
 

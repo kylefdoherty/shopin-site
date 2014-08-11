@@ -14,8 +14,9 @@
       <!-- Para. Not more than 2 lines. -->
       <p><%= product.description %></p>
       <hr>
-      <div class="item-price pull-left"><%= product.price_dollars %></div>
-      <div class="pull-right"><a href="#" class="btn btn-danger btn-sm">Add to Cart</a></div>
+      <!-- <div class="item-price"><%# product.price_dollars %></div> -->
+      <div class="item-price"><%= product.price_pretty %></div>
+      <!-- <div class="pull-right"><a href="#" class="btn btn-danger btn-sm">Add to Cart</a></div> -->
       <div class="clearfix"></div>
     </div>
   </div>
