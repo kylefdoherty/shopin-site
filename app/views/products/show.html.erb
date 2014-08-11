@@ -1,7 +1,7 @@
 <h2><%= @product.title %></h2>
 <h3>$<%= @product.price %></h3><br>
 
-<%= image_tag @product.product_image_url.to_s %><br>
+<%= image_tag @product.product_image_url(:thumb).to_s %><br>
 <h3>Quantity: <%= @product.quantity %></h3>
 <h3>Vendor: <%= @seller.name %></h3>
 <p><%= @product.description %></p>

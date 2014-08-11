@@ -1,4 +1,7 @@
-<%= form_for(user) do |f| %>
+<hr />
+<div class="col-md-9">
+  <h3>&nbsp;Edit Profile</h3>
+<%= form_for(@user, html: {class: "form-horizontal", role: "form"}) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -10,23 +13,72 @@
       </ul>
     </div>
   <% end %>
-  <p>
-    <b>Name</b><br>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <b>Email</b><br>
-    <%= f.text_field :email %>
-  </p> 
-  <p>
-    <b>Address</b><br>
-    <%= f.text_field :email %>
-  </p> 
-  <p>
-    <b>Vendor?</b><br>
-    <%= f.check_box :vendor %>
-  </p> 
 
-    <%= f.submit %>
-  </p>
+
+
+  <div class="form-group">
+      <%= f.label :name, for: "inputName", class: "col-md-2 control-label" %><br>
+    <div class="col-md-6">
+      <%= f.text_field :name, class: "form-control", id: "inputName" %>
+    </div>
+  </div>
+  <div class="form-group">
+      <%= f.label :email, for: "inputName", class: "col-md-2 control-label"  %><br>
+    <div class="col-md-6">
+      <%= f.text_field :email, class: "form-control", id: "inputEmail" %>
+    </div>
+  </div>
+  <div class="form-group">
+      <%= f.label :phone, for: "inputName", class: "col-md-2 control-label"  %><br>
+    <div class="col-md-6">
+      <%= f.text_field :phone, class: "form-control", id: "inputPhone" %>
+    </div>
+  </div>
+  <div class="form-group">
+      <%= f.label :country, for: "inputName", class: "col-md-2 control-label"  %><br>
+    <div class="col-md-6">
+      <%= f.select(:country, @user.countries, {selected: "United States"}, { :class => 'form-control' } )%>
+    </div>
+  </div>
+  <div class="form-group">
+      <%= f.label :address, for: "inputName", class: "col-md-2 control-label"  %><br>
+    <div class="col-md-6">
+      <%= f.text_area :address, class: "form-control", id: "inputAddress" %>
+    </div>
+  </div>
+  <div class="form-group">
+      <%= f.label :city, for: "inputName", class: "col-md-2 control-label"  %><br>
+    <div class="col-md-6">
+      <%= f.text_field :city, class: "form-control", id: "inputCity" %>
+    </div>
+  </div>
+  <div class="form-group">
+      <%= f.label :state, for: "inputName", class: "col-md-2 control-label"  %><br>
+    <div class="col-md-6">
+      <%= f.text_field :state, class: "form-control", id: "inputState" %>
+    </div>
+  </div>
+  <div class="form-group">
+      <%= f.label :zip, for: "inputName", class: "col-md-2 control-label"  %><br>
+    <div class="col-md-6">
+      <%= f.text_field :zip, class: "form-control", id: "inputZip" %>
+    </div>
+  </div>  
+  <div class="form-group">
+      <%= f.label :vendor, for: "inputName", class: "col-md-2 control-label"  %><br>
+    <div class="col-md-6">
+      <%= f.check_box :vendor %>
+    </div>
+  </div>
+  <div class="actions form-group">
+    <div class="col-md-offset-2 col-md-10">
+      <%= f.submit value: "Save Changes", class: "btn btn-danger" %>
+    </div>
+  </div>
+</div>
 <% end %>
+
+
+
+
+
