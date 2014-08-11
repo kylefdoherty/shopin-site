@@ -9,4 +9,14 @@ class Product < ActiveRecord::Base
   # validates_integrity_of  :product_image
   # validates_processing_of :product_image
 
+
+
+  def price_dollars
+    price_cents.to_d/100 if price_cents
+  end
+
+  def price_dollars=(dollars)
+    self.price_cents = dollars.to_d*100 if dollars.present?
+  end  
+
 end

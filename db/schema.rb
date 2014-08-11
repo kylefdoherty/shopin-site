@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20140810193639) do
 
   create_table "products", force: true do |t|
     t.string   "title",         default: ""
-    t.float    "price",         default: 0.0
+    t.integer  "price_cents"
     t.text     "description",   default: ""
     t.integer  "seller_id"
     t.datetime "created_at"

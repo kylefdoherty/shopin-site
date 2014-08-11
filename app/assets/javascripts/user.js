@@ -20,4 +20,10 @@ $(function(){
     $('#recent_purchases').show();
   });
 
+  $('#fulfillment').click(function(){
+    $('#buyer').hide();
+    $('#edit').hide();
+    $('#recent_purchases').show();
+  });
+
 });
