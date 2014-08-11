@@ -3,7 +3,7 @@ class LineItem < ActiveRecord::Base
   belongs_to :order
 
   def total 
-    self.quantity ? self.quantity * self.item.price : 0
+    self.quantity ? self.quantity * self.item.price_dollars : 0
   end 
 
 
