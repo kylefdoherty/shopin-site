@@ -13,11 +13,11 @@ User.create(name: "user3", vendor: true)
 User.create(name: "user4")
 User.create(name: "user5")
 
-Product.create(title: "Kibble'n'Bits", price: 10.00, seller_id: 1, description: 'A scrumptious canine treat, helps fight plaque')
-Product.create(title: "Chow Down", price: 15.00, seller_id: 2, description: 'Non-GMO wet food for a balanced doggie diet')
-Product.create(title: "Horse Bully Sticks", price: 20.00, seller_id: 3, description: 'Forget those measly bull penises')
-Product.create(title: "Himalayan Kong", price: 30.00, seller_id: 6, description: 'Made of yak cheese. Stronger than vulcanized rubber')
-Product.create(title: "Tugga War", price: 40.00, seller_id: 6, description: 'Why yes, you WILL pay too much for this hemp rope knot')
+Product.create(title: "Kibble'n'Bits", price_cents: 100000, seller_id: 1, description: 'A scrumptious canine treat, helps fight plaque')
+Product.create(title: "Chow Down", price_cents: 150000, seller_id: 2, description: 'Non-GMO wet food for a balanced doggie diet')
+Product.create(title: "Horse Bully Sticks", price_cents: 200000, seller_id: 3, description: 'Forget those measly bull penises')
+Product.create(title: "Himalayan Kong", price_cents: 300000, seller_id: 6, description: 'Made of yak cheese. Stronger than vulcanized rubber')
+Product.create(title: "Tugga War", price_cents: 400000, seller_id: 6, description: 'Why yes, you WILL pay too much for this hemp rope knot')
 
 
 Order.create(buyer_id: 1, closed: true)
