@@ -1,5 +1,31 @@
-<% tag_string = product.product_tags.collect do |product_tag| %>
-  <% "tag#{product_tag.tag_id}" %>
-<% end.join(' ') %>
-<p class='<%= tag_string %>'><%= link_to product.title, product %></p>
-<%= image_tag product.product_image_url.to_s %><br><br>
+
+
+<div class="col-md-3 col-sm-6 col-xs-12">
+  <div class="item">
+    <!-- Use the below link to put HOT icon -->
+    <!-- <div class="item-icon"><span>HOT</span></div> -->
+    <!-- Item image -->
+    <div class="item-image">
+      <%= link_to product do %>
+        <%= image_tag product.product_image_url(:thumb).to_s, class: "img-responsive" %>
+      <% end %>
+    </div>
+    <!-- Item details -->
+    <div class="item-details">
+      <!-- Name -->
+      <% tag_string = product.product_tags.collect do |product_tag| %>
+        <% "tag#{product_tag.tag_id}" %>
+      <% end.join(' ') %>
+      <h5 class='<%= tag_string %>'><%= link_to product.title, product %></h5>
+      <div class="clearfix"></div>
+      <!-- Para. Not more than 2 lines. -->
+      <p><%= product.description %></p>
+      <hr>
+      <!-- Price -->
+      <div class="item-price pull-left">$<%= product.price %></div>
+      <!-- Add to cart -->
+      <div class="pull-right"><a href="#" class="btn btn-danger btn-sm">Add to Cart</a></div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>

@@ -1,11 +1,29 @@
-<!-- filter by tag -->
-<%= collection_select(:product_tag, :tag_id, @tags, :id, :name, prompt: true) %>
+<div class="hero">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- Catchy title -->
+        <h3>It<span class="color">'</span>s a <span class="color">dog's</span> life</h3>
+        <p>Dog treats for daayss.</p>
+      </div>
+    </div>
+    <div class="sep-bor"></div>
+  </div>
+</div>
+
+Category: <%= collection_select(:product_tag, :tag_id, @tags, :id, :name, prompt: true) %>
 
 <!-- <div class="products tags"> -->
   <!-- <input class="typeahead" type="text" placeholder="Products & tags"> -->
 <!-- </div> -->
 
 <!-- display all products (or filtered by div class in product.js) -->
-<div class="display">
-  <%= render @products %>
+<div class="shop-items blocky">
+  <div class="container">        
+    <div class="row">          
+      <div class="display">
+        <%= render @products %>
+      </div>
+    </div>
+  </div>
 </div>

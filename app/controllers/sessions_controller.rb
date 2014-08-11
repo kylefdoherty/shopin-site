@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     session[:user_id] = @user.id
     session[:current_user] = @user
     flash[:notice] = "Thanks for signing in, #{@user.name}!"
-    redirect_to root_path
+    redirect_to :back
   end
 
   def destroy

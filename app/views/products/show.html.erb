@@ -1,18 +1,57 @@
-<h2><%= @product.title %></h2>
-<h3>$<%= @product.price %></h3><br>
-
-<%= image_tag @product.product_image_url.to_s %><br>
-<h3>Quantity: <%= @product.quantity %></h3>
-<h3>Vendor: <%= @seller.name %></h3>
-<p><%= @product.description %></p>
-<p><%= link_to "Edit", edit_product_path if @user && @user == @seller %></p>
-<% if current_user %>
-  <%= form_for LineItem.new do |f|  %>
-    <%= f.hidden_field(:item_id, value: @product.id) %>
-    <%= f.hidden_field(:order_id, value: @order.id) %>
-    <%= f.select :quantity, options_for_select((0..@product.quantity)) %> 
-    <%= f.submit 'Buy' %>
-  <% end %>
-<% else %>
-  <%= button_to "Log in to purchase", "/auth/amazon" %>
-<% end %>
+<div class="shop-items">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9 col-md-3">
+        <div class="single-item">
+          <div class="row">
+            <div class="col-md-4 col-xs-5">
+              <div class="item-image">
+                <%= image_tag @product.product_image_url(:thumb).to_s %><br>
+              </div><!-- item-image -->
+            </div><!-- col-md-4 col-xs-5 -->
+            <div class="col-md-5 col-xs-7">
+              <!-- Title -->
+              <h4><%= @product.title %><%= link_to " (Edit)", edit_product_path if @user && @user == @seller %></h4>
+              <table>
+                <tr>
+                  <td><strong>Vendor: </strong></td>
+                  <td><%= @seller.name %></td>
+                </tr>
+                <tr>
+                  <td><strong>Price: </strong></td>
+                  <td>$<%= @product.price %></td>
+                </tr>
+                <tr>
+                  <td><strong>Availability:&nbsp;</strong></td>
+                  <td><% if @product.quantity == 0 %>
+                    Sold Out
+                  <% else %>
+                    In Stock
+                  <% end %></td>
+                </tr>
+              </table>
+              <p><strong>Description: </strong><%= @product.description %></p><br>
+              <!-- Quantity and add to cart button -->              
+              <div class="input-group">
+                <% if current_user %>
+                  <%= form_for LineItem.new do |f|  %>
+                    <%= f.hidden_field(:item_id, value: @product.id) %>
+                    <%= f.hidden_field(:order_id, value: @order.id) %>
+                    <!-- <input type="text" class="" placeholder="2"> -->
+                    <%= f.select :quantity, options_for_select(0..@product.quantity), {}, {class: 'form-control'} %>
+                    <!-- <span class="input-group-btn"> -->
+                      <%= f.submit 'Go!', class: 'btn btn-info' %>
+                    <!-- </span> -->
+                  <% end %>
+                <% else %>
+                  <%= button_to "Log in to purchase", "/auth/facebook" %>
+                <% end %>
+              </div><!-- input-group -->
+            </div><!-- col-md-5 col-xs-7 -->
+          </div><!-- row -->
+        </div><!-- single-item -->
+      </div><!-- col-md-9 col-md-3 -->
+    </div><!-- row -->
+    <div class="sep-bor"></div>
+  </div><!-- container -->
+</div><!-- shop-items -->
