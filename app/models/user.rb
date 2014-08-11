@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
     self.vendor
   end 
 
+  def format_phone
+    self.phone.insert(3,'-').insert(7,'-')   
+  end 
+
   #turn this into arel statement later
   def closed_orders
     closed_orders = self.orders.select {|order| order.closed == true}

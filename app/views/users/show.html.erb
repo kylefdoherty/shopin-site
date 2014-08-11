@@ -20,7 +20,7 @@
                          <!-- <li><a href="wishlist.html">Wish List</a></li> -->
                          <li><a href="#" id="order-history">Order History</a></li>  
                          <% if @user.vendor? %>       
-                           <li><a href="#" id="fulfillment-page">Fulfillment</a></li> 
+                           <li><a href="#" id="seller-account">Seller Account</a></li> 
                          <% end %>        
                         <li><a href="#" id="edit-account">Edit Account</a></li>
                      </ul>
@@ -30,23 +30,27 @@
                   <h3><i class="fa fa-user color"></i> &nbsp;My Account</h3>
                   <!-- Your details -->
                    <div class="address">
+                     <!-- Your name -->
+                     <strong><%= @user.name %></strong><br>
+                     <!-- Address -->
                      <address>
-                       <!-- Your name -->
-                       <strong><%= @user.name %></strong><br>
-                       <!-- Address -->
                        <%= @user.address %><br>
-                       <%= @user.city %>, <%= @user.state %> <%= @user.zip %><br>
-
+                       <% if !@user.city.empty? %>
+                        <%= @user.city %>, <%= @user.state %> <%= @user.zip %><br>
+                       <% end %>
                        <!-- Phone number -->
-                       <abbr title="Phone">P:</abbr> <%= @user.phone %><br />
+                       <% if !@user.phone.empty? %>
+                        <abbr title="Phone">P:</abbr> <%= @user.format_phone %><br />
+                       <% end %>
                        <a href="mailto:#"><%= @user.email %></a>
                      </address>
                    </div>
-                  <% if !@user.last_closed_order == nil %>
+                  <% if !@user.closed_orders.empty? %>
                     <div id="recent_purchases"> <%= render "recent_purchases" %></div>
                   <% end %>
                   <div id="buyer"> <%= render "buyer" %></div>
                   <div id="edit"><%= render "form" %></div>
+                  <div id="seller"><%= render "seller" %></div>
                   
  
                </div>
