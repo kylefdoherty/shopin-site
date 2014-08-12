@@ -1,7 +1,8 @@
 <h2><%= User.find(@order.buyer_id).name %>'s Current Order:</h2>
 <h3><%= link_to 'Continue Shopping', root_path %></h3>
-<h4 id="order_total">Current Total: $<span><%= number_with_precision(@order.total, precision:2) %></span></h4>
-<%= content_tag(:p, @order.line_items.collect{|item| item.quantity}.reduce(:+), class: 'hidden') %>
+<h4 id="order_total">Current Total: <%= @order.pretty_total %></h4>
+<% order_quantity = @order.line_items.collect{|item| item.quantity}.reduce(:+) %>
+<%= content_tag(:p, order_quantity, class: 'hidden') %>
 <table style="width: 500px">
   <tr>
     <th>Name</th>
@@ -28,11 +29,20 @@
 <% end %>
 </table>
 
-<% unless @order.closed %>
-  <%= form_for [@user, @order] do |f| %>
-    <%= hidden_field(:id, value: @order.id) %>
-    <%= f.hidden_field(:user_id, value: @order.buyer_id) %>
-    <%= f.hidden_field(:closed, value: true) %>
-    <%= f.submit 'Checkout' %>
+  <% unless @order.closed %>
+    <%= form_for [@user, @order] do |f| %>
+      <%= hidden_field(:id, value: @order.id) %>
+      <%= f.hidden_field(:user_id, value: @order.buyer_id) %>
+      <%= f.hidden_field(:closed, value: true) %>
+      <script
+        src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="pk_test_4ZhITOYJY3iwoEXMHm2suTBw"
+        data-amount="<%= @order.total*100 %>"
+        data-name="ThePupClub"
+        data-description="<%= order_quantity %> item(s) (<%= @order.pretty_total %>)"
+        data-image="/128x128.png">
+      </script>
+      <% unless order_quantity == 0 %>
+    <% end %>
   <% end %>
 <% end %>

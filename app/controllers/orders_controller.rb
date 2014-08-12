@@ -19,6 +19,7 @@ class OrdersController < ApplicationController
 
     if @order.update(order_hash)
       @user.orders.create
+      flash[:notice] = "Thanks, you paid #{@order.pretty_total}!"
       redirect_to(@user)
     else
       render :edit

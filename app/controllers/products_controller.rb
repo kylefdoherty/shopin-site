@@ -34,8 +34,9 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
+    @user = User.find(@product.seller_id)
     if @product.update(product_hash)
-      redirect_to(@product)
+      redirect_to(@user) # 'My Products' tab on user show page?
     else
       render :edit
     end

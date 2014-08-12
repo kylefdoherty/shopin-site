@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   end
 
   def vendor?
-    self.vendor
+    self.vendor || Product.all.detect {|product| product.seller_id == self.id}
   end 
 
   def format_phone
