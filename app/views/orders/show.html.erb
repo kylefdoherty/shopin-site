@@ -20,7 +20,7 @@
       <%= f.select :quantity, (0..li.item.quantity)%>
       <% end %>
     </td>
-    <td id="line_item_total_<%= li.id %>"><%= number_with_precision(li.total, precision: 2) %></td>
+    <td id="line_item_total_<%= li.id %>"><%= li.pretty_total %></td>
     <td>
       <%= button_to "Remove", li, :remote => true, :method => :delete %>
     </td>

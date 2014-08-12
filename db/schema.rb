@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140810193639) do
+ActiveRecord::Schema.define(version: 20140811203024) do
 
   create_table "line_items", force: true do |t|
     t.integer  "item_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140810193639) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "quantity"
+    t.string   "status",     default: "Pending"
   end
 
   add_index "line_items", ["item_id"], name: "index_line_items_on_item_id"

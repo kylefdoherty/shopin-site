@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   skip_before_action :authentication_required, only: [:index, :show]
 
   def index
-    @products = Product.all
+    @products = Product.active_products
     @tags = Tag.all
   end
 
@@ -40,6 +40,17 @@ class ProductsController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    @product = Product.find(params[:id])
+    @product.seller_id = nil
+    @product.save
+
+    respond_to do |format|
+      format.html 
+      format.js
+    end
+  end 
 
   private
     def set_product

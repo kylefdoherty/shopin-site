@@ -22,4 +22,8 @@ class Product < ActiveRecord::Base
     self.price_cents = dollars.to_d*100 if dollars.present?
   end  
 
+  def self.active_products
+    @active_products ||= Product.all.select {|p| p.seller_id != nil}
+  end 
+
 end

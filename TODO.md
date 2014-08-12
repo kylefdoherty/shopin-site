@@ -1,4 +1,10 @@
 KYLE:
+- split products & fulfillments into 2
+- Ajax quantity & remove for products 
+- Drop down for account (either jquery or Ajax the pages)
+- Refactor price_pretty to work for all prices (totals)
+- Push ajax stuff in controllers to models 
+
 
 EMILY:
 - auto search (solr)

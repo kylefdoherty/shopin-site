@@ -1,11 +1,13 @@
 <hr />
 <div class="col-md-9">
-  <h3>Order History</h3><br>
+  <h3>Orders Pending Fulfillment:</h3><br>
     <!-- Your details -->
 
-  <% @user.closed_orders.each do |order| %>
+  <% @user.fulfillments.uniq.each do |fulfill| %>
+    <% buyer = User.find(fulfill.buyer_id) %>
 
-    <h4>Order Placed: <%= order.updated_at.strftime('%b %d, %Y') %></h4>
+
+    <h4>Order Placed: <%= fulfill.updated_at.strftime('%b %d, %Y') %></h4>
 
     <table class="table table-striped tcart">
       <thead>
@@ -20,21 +22,24 @@
         </tr>
       </thead>
    <tbody>
-    <% order.line_items.each do |li| %>
+    <% fulfill.line_items.each do |li| %>
      <tr>
        <td><%= li.updated_at.strftime('%b %d, %Y') %></td>
        <td><%= li.id %></td>
        <td><%= li.item.title %></td>
-       <!-- <td>$<%# li.item.price_dollars %></td> -->
        <td><%= li.item.price_pretty %></td>
        <td><%= li.quantity %></td>
        <td><%= li.pretty_total %></td>
-       <td><%= ['Completed','Shipped','Processing'].sample %></td>
+       <td>
+        <%= form_for li, :remote => true do |f|  %>
+          <%= f.select :status, ['Processing', 'Shipped', 'Completed']%>
+        <% end %>
+       </td>
      </tr>
      <% end %>
      <tr>
         <td colspan="5"><strong>Total</strong></td>
-        <td><strong><%= order.pretty_total %></strong></td>
+        <td><strong><%= fulfill.pretty_total %></strong></td>
         <td></td>
      </tr>                                              
    </tbody>
@@ -42,5 +47,25 @@
 
     <% end %>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

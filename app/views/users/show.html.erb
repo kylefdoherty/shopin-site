@@ -20,7 +20,8 @@
                          <!-- <li><a href="wishlist.html">Wish List</a></li> -->
                          <li><a href="#" id="order-history">Order History</a></li>  
                          <% if @user.vendor? %>       
-                           <li><a href="#" id="seller-account">Seller Account</a></li> 
+                           <li><a href="#" id="pending-fulfillments">Pending Fulfillments</a></li> 
+                           <li><a href="#" id="my-products">My Products</a></li> 
                          <% end %>        
                         <li><a href="#" id="edit-account">Edit Account</a></li>
                      </ul>
@@ -50,7 +51,8 @@
                   <% end %>
                   <div id="buyer"> <%= render "buyer" %></div>
                   <div id="edit"><%= render "form" %></div>
-                  <div id="seller"><%= render "seller" %></div>
+                  <div id="seller_pending_fulfillments"><%= render "pending_fulfillments" %></div>
+                  <div id="products"><%= render "products" %></div>
                   
  
                </div>
