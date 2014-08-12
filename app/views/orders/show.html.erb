@@ -4,7 +4,7 @@
 <%= content_tag(:p, order_quantity, class: 'hidden') %>
 
 <% if order_quantity %>
-  <h3 id="order_total">Current Total: <%= @order.pretty_total %></h3>
+  <h3 id="order_total">Current Total: <span><%= @order.pretty_total %></span></h3>
   <table style="width: 500px">
     <tr>
       <th>Name</th>
@@ -44,5 +44,5 @@
     </script>
   <% end %>
 <% else %>
-    <h3 id="order_total">Cart is empty!</h3>
+    <h3>Cart is empty!</h3>
 <% end %>

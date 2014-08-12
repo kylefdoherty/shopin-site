@@ -12,7 +12,7 @@
           <% if session[:current_user] %>
             <% cart = current_user.orders.last %>
             <% if cart.total > 0 %>
-              <%= link_to "<i class='fa fa-shopping-cart'></i> #{cart.line_items.collect{|item| item.quantity}.reduce(:+)} - $#{cart.total}".html_safe, [current_user, current_user.orders.last] %>
+              <%= link_to "<i class='fa fa-shopping-cart'></i> #{cart.line_items.collect{|item| item.quantity}.reduce(:+)} - #{cart.pretty_total}".html_safe, [current_user, current_user.orders.last] %>
             <% else %>
               <%= link_to '<i class="fa fa-shopping-cart"></i> Cart'.html_safe, [current_user, cart] %>
             <% end %>
