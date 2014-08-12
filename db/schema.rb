@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140810193639) do
+ActiveRecord::Schema.define(version: 20140811203024) do
 
   create_table "line_items", force: true do |t|
     t.integer  "item_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20140810193639) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "quantity"
+    t.string   "status",     default: "Pending"
   end
 
   add_index "line_items", ["item_id"], name: "index_line_items_on_item_id"
@@ -67,17 +68,10 @@ ActiveRecord::Schema.define(version: 20140810193639) do
     t.boolean  "vendor",     default: false
     t.string   "address"
     t.string   "phone",      default: ""
-<<<<<<< HEAD
     t.string   "country",    default: ""
     t.string   "zip",        default: ""
     t.string   "city",       default: ""
     t.string   "state",      default: ""
-=======
-    t.string   "country"
-    t.string   "zip"
-    t.string   "city",       default: ""
-    t.string   "state"
->>>>>>> f5d8d48dc3f7d9502ed47d0f71b71d59cf260264
   end
 
 end

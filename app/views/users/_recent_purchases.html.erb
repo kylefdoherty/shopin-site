@@ -15,6 +15,7 @@
      </thead>
      <tbody>
       <% @user.last_closed_order.line_items.each do |li| %>
+
        <tr>
          <td><%= li.updated_at.strftime('%b %d, %Y') %></td>
          <td><%= li.id %></td>
