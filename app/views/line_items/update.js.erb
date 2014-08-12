@@ -3,6 +3,6 @@ $('#line_item_total_<%= "#{@line_item.id}" %>').text('<%=j "#{@line_item.pretty_
 $('.hidden').text('<%=j "#{@order.line_items.collect{|item| item.quantity}.reduce(:+)}" %>');
 (function() {
   var cartCount = $('.hidden').text(),
-      cartTotal = $('#order_total').find('span').text();
+      cartTotal = $('#order_total span').text();
   $('.fa-shopping-cart').parent().html("<i class='fa fa-shopping-cart'></i>" + cartCount + " - " + cartTotal);
 })();

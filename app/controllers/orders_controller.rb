@@ -18,6 +18,25 @@ class OrdersController < ApplicationController
     end 
 
     if @order.update(order_hash)
+
+    # Set your secret key: remember to change this to your live secret key in production
+    # See your keys here https://dashboard.stripe.com/account
+    Stripe.api_key = "sk_test_4ZhIUWAzn1oqP11s3EVHEifJ"
+
+    # Get the credit card details submitted by the form
+    token = params[:stripeToken]
+    # Create the charge on Stripe's servers - this will charge the user's card
+    begin
+      charge = Stripe::Charge.create(
+        :amount => @order.total*100, # amount in cents, again
+        :currency => "usd",
+        :card => token,
+        :description => params[:stripeEmail]
+      )
+    rescue Stripe::CardError => e
+      # The card has been declined
+    end
+
       @user.orders.create
       flash[:notice] = "Thanks, you paid #{@order.pretty_total}!"
       redirect_to(@user)

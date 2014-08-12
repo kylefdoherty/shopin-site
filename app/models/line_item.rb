@@ -8,7 +8,7 @@ class LineItem < ActiveRecord::Base
   end 
 
   def pretty_total
-    self.quantity ? number_to_currency(self.quantity * self.item.price_cents/100) : 0
+    self.quantity ? number_to_currency(self.quantity * self.item.price_cents/100) : '$0.00'
   end 
   
 end

@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20140811203024) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "quantity"
-    t.string   "status",     default: "Pending"
+    t.string   "status",     default: "Processing"
   end
 
   add_index "line_items", ["item_id"], name: "index_line_items_on_item_id"

@@ -16,7 +16,16 @@
       <hr>
       <!-- <div class="item-price"><%# product.price_dollars %></div> -->
       <div class="item-price"><%= product.price_pretty %></div>
-      <!-- <div class="pull-right"><a href="#" class="btn btn-danger btn-sm">Add to Cart</a></div> -->
+      <div class="pull-right">
+        <% if current_user %>
+          <%= form_for LineItem.new do |f|  %>
+            <%= f.hidden_field(:item_id, value: product.id) %>
+            <%= f.hidden_field(:order_id, value: User.find(session[:user_id]).orders.last.id) %>
+            <%= f.hidden_field(:quantity, value: 1) %>
+            <%= f.submit 'Add to Cart', class: 'btn btn-danger btn-sm' %>
+          <% end %>
+        <% end %>
+      </div>
       <div class="clearfix"></div>
     </div>
   </div>
