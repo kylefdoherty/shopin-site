@@ -1,9 +1,8 @@
 $('#line_item_<%=j "#{@line_item.id}" %>').remove();
-$('#order_total span').text('<%=j "#{@order.pretty_total}" %>');
+$('tr:last th:last').text('<%=j "#{@order.pretty_total}" %>');
 $('.hidden').text('<%= "#{@order.line_items.collect{|item| item.quantity}.reduce(:+)}" %>');
-debugger
 (function() {
   var cartCount = $('.hidden').text(),
-      cartTotal = $('#order_total span').text();
+      cartTotal = $('tr:last th:last').text();
   $('.fa-shopping-cart').parent().html("<i class='fa fa-shopping-cart'></i>" + cartCount + " - " + cartTotal);
 })();

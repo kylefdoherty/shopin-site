@@ -1,8 +1,9 @@
-$('#order_total span').text('<%=j "#{@order.pretty_total}" %>');
+$('tr:last th:last').text('<%=j "#{@order.pretty_total}" %>');
+// debugger if line item total is 0, remove line item
 $('#line_item_total_<%= "#{@line_item.id}" %>').text('<%=j "#{@line_item.pretty_total}" %>');
 $('.hidden').text('<%=j "#{@order.line_items.collect{|item| item.quantity}.reduce(:+)}" %>');
 (function() {
   var cartCount = $('.hidden').text(),
-      cartTotal = $('#order_total span').text();
-  $('.fa-shopping-cart').parent().html("<i class='fa fa-shopping-cart'></i>" + cartCount + " - " + cartTotal);
+      cartTotal = $('tr:last th:last').text();
+  $('.fa-shopping-cart').parent().html("<i class='fa fa-shopping-cart'></i>&nbsp" + cartCount + " - " + cartTotal);
 })();
