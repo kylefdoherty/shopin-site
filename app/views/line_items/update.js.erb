@@ -1,2 +1,8 @@
 $('#order_total span').text('<%=j "#{@order.total}" %>');
 $('#line_item_total_<%= "#{@line_item.id}" %>').text('<%=j "#{@line_item.total}" %>');
+$('.hidden').text('<%=j "#{@order.line_items.collect{|item| item.quantity}.reduce(:+)}" %>');
+(function() {
+  var cartCount = $('.hidden').text(),
+      cartTotal = $('#order_total').find('span').text();
+  $('.fa-shopping-cart').parent().html("<i class='fa fa-shopping-cart'></i>" + cartCount + " - $" + cartTotal);
+})();

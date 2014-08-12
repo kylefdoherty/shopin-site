@@ -1,7 +1,7 @@
 <h2><%= User.find(@order.buyer_id).name %>'s Current Order:</h2>
-<h3 id="order_total">Current Total: $<span><%= number_with_precision(@order.total, precision:2) %></span></h3>
-<h4><%= link_to 'Continue Shopping', root_path %></h4>
-
+<h3><%= link_to 'Continue Shopping', root_path %></h3>
+<h4 id="order_total">Current Total: $<span><%= number_with_precision(@order.total, precision:2) %></span></h4>
+<%= content_tag(:p, @order.line_items.collect{|item| item.quantity}.reduce(:+), class: 'hidden') %>
 <table style="width: 500px">
   <tr>
     <th>Name</th>
@@ -28,7 +28,7 @@
 <% end %>
 </table>
 
-<% unless @order.closed && !@order.line_items.empty? %>
+<% unless @order.closed %>
   <%= form_for [@user, @order] do |f| %>
     <%= hidden_field(:id, value: @order.id) %>
     <%= f.hidden_field(:user_id, value: @order.buyer_id) %>
