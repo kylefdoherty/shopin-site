@@ -23,7 +23,7 @@ class Product < ActiveRecord::Base
   end  
 
   def self.active_products
-    @active_products ||= Product.all.select {|p| p.seller_id != nil}
+    Product.all.select {|p| p.seller_id != nil}
   end 
 
 end

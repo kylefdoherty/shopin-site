@@ -1,36 +1,45 @@
-<hr />                   
- <h4>My Recent Purchases</h4>
+<div class="view-cart blocky">
+ <div class="container">
+    <div class="row">
+       <div class="col-md-10">
+              
+      <hr />                   
+       <h4>My Recent Purchases</h4>
 
-   <table class="table table-striped tcart">
-     <thead>
-       <tr>
-         <th>Date</th>
-         <th>ID</th>
-         <th>Name</th>
-         <th>Price</th>
-         <th>Quantity</th>
-         <th>Total</th>
-         <th>Status</th>
-       </tr>
-     </thead>
-     <tbody>
-      <% @user.last_closed_order.line_items.each do |li| %>
+         <table class="table table-striped">
+           <thead>
+             <tr>
+               <th>Date</th>
+               <th>ID</th>
+               <th>Name</th>
+               <th>Price</th>
+               <th>Quantity</th>
+               <th>Total</th>
+               <th>Status</th>
+             </tr>
+           </thead>
+           <tbody>
+            <% @user.last_closed_order.line_items.each do |li| %>
 
-       <tr>
-         <td><%= li.updated_at.strftime('%b %d, %Y') %></td>
-         <td><%= li.id %></td>
-         <td><%= li.item.title %></td>
-         <!-- <td><%# li.item.price_dollars %></td> -->
-         <td><%= li.item.price_pretty %></td>
-         <td><%= li.quantity %></td>
-         <td><%= li.pretty_total %></td>
-         <td><%= li.status %></td>
-       </tr>
-       <% end %>
-       <tr>
-          <td colspan="5"><strong>Total</strong></td>
-          <td><strong><%= @user.last_closed_order.pretty_total %></strong></td>
-          <td></td>
-       </tr>                                              
-     </tbody>
-   </table>
+             <tr>
+               <td><%= li.updated_at.strftime('%b %d, %Y') %></td>
+               <td><%= li.id %></td>
+               <td><%= li.item.title %></td>
+               <!-- <td><%# li.item.price_dollars %></td> -->
+               <td><%= li.item.price_pretty %></td>
+               <td><%= li.quantity %></td>
+               <td><%= li.pretty_total %></td>
+               <td><%= li.status %></td>
+             </tr>
+             <% end %>
+             <tr>
+                <td colspan="5"><strong>Total</strong></td>
+                <td><strong><%= @user.last_closed_order.pretty_total %></strong></td>
+                <td></td>
+             </tr>                                              
+           </tbody>
+         </table>
+       </div>
+      </div>
+    </div>
+  </div>
