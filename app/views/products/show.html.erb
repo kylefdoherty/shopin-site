@@ -34,21 +34,27 @@
               </table>
               <p><strong>Description: </strong><%= @product.description %></p><br>
               <!-- Quantity and add to cart button -->              
-              <div class="input-group">
+              <!-- <div class="input-group"> -->
                 <% if current_user %>
+                <!-- <div class="form-group"> -->
                   <%= form_for LineItem.new do |f|  %>
                     <%= f.hidden_field(:item_id, value: @product.id) %>
                     <%= f.hidden_field(:order_id, value: @order.id) %>
                     <!-- <input type="text" class="" placeholder="2"> -->
+                    
                     <%= f.select :quantity, options_for_select(0..@product.quantity), {}, {class: 'form-control'} %>
+                    
                     <!-- <span class="input-group-btn"> -->
-                      <%= f.submit 'Go!', class: 'btn btn-info' %>
+                    
+                    <%= f.submit 'Add to Cart', class: 'btn btn-info' %>
+
                     <!-- </span> -->
                   <% end %>
+                  
                 <% else %>
                   <%= button_to "Log in to purchase", "/auth/facebook" %>
                 <% end %>
-              </div><!-- input-group -->
+              
             </div><!-- col-md-5 col-xs-7 -->
           </div><!-- row -->
         </div><!-- single-item -->

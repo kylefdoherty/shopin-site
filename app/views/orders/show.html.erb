@@ -1,48 +1,96 @@
-<h2><%= User.find(@order.buyer_id).name %>'s Current Order:</h2>
-<h3><%= link_to 'Continue Shopping', root_path %></h3>
-<% order_quantity = @order.line_items.collect{|item| item.quantity}.reduce(:+) %>
-<%= content_tag(:p, order_quantity, class: 'hidden') %>
+<!-- Page title -->
+<div class="page-title">
+   <div class="container">
+      <h2><i class="fa fa-desktop color"></i><%= User.find(@order.buyer_id).name %>'s Cart</h2>
+      <hr />
+   </div>
+</div>
+<!-- Page title -->
 
-<% if order_quantity %>
-  <h3 id="order_total">Current Total: <span><%= @order.pretty_total %></span></h3>
-  <table style="width: 500px">
-    <tr>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Quantity</th>
-      <th>Total</th>
-      <th>Delete</th>
-    </tr>
-  <% @order.line_items.each do |li| %>
-    <tr id='line_item_<%= li.id %>'>
-      <td><%= li.item.title %></td>
-      <!-- <td><%# number_with_precision(li.item.price_dollars, precision: 2) %></td> -->
-      <td><%= li.item.price_pretty %></td>
-      <td>
-        <%= form_for li, :remote => true do |f|  %>
-        <%= f.select :quantity, (0..li.item.quantity)%>
-        <% end %>
-      </td>
-      <td id="line_item_total_<%= li.id %>"><%= li.pretty_total %></td>
-      <td>
-        <%= button_to "Remove", li, :remote => true, :method => :delete %>
-      </td>
-    </tr>
-  <% end %>
-  </table>
-  <%= form_for [@user, @order] do |f| %>
-    <%= hidden_field(:id, value: @order.id) %>
-    <%= f.hidden_field(:user_id, value: @order.buyer_id) %>
-    <%= f.hidden_field(:closed, value: true) %>
-    <script
-      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-      data-key="pk_test_4ZhITOYJY3iwoEXMHm2suTBw"
-      data-amount="<%= @order.total*100 %>"
-      data-name="ThePupClub"
-      data-description="<%= order_quantity %> item(s) (<%= @order.pretty_total %>)"
-      data-image="/128x128.png">
-    </script>
-  <% end %>
-<% else %>
-    <h3>Cart is empty!</h3>
-<% end %>
+
+<!-- Page content -->
+
+<div class="view-cart blocky">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+         <% order_quantity = @order.line_items.collect{|item| item.quantity}.reduce(:+) %>
+         <%= content_tag(:p, order_quantity, class: 'hidden') %>
+
+         <% if order_quantity %>
+            <!-- Table -->
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Total</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @order.line_items.each_with_index do |li, index| %>
+                  <tr id='line_item_<%= li.id %>'>
+                    <!-- Index -->
+                    <td><%= index + 1 %></td>
+                    <!-- Product  name -->
+                    <td><%= link_to li.item.title, li.item %></td>
+                    <!-- Product image -->
+                    <td><%= image_tag li.item.product_image_url(:small_thumb).to_s %></td>
+                    <!-- Quantity with refresh and remove button -->
+                    <td>
+                      <%= form_for li, :remote => true do |f|  %>
+                        <%= f.select :quantity, (0..li.item.quantity), {}, {class: "form-control"}%>
+                      <% end %>
+                    </td>
+                    <!-- Unit price -->
+                    <td><%= li.item.price_pretty %></td>
+                    <!-- Total cost -->
+                    <td id="line_item_total_<%= li.id %>"><%= li.pretty_total %></td>
+                    <td>
+                      <%= button_to "Remove", li, :remote => true, :method => :delete, class: "btn btn-danger" %>
+                    </td>
+                  </tr>
+                  <% end %>                                   
+                  <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th>Total</th>
+                    <th><%= @order.pretty_total %></th>
+                  </tr>
+                </tbody>
+              </table>
+              <% else %>
+                <h3>Cart is empty!</h3>
+              <% end %>
+          </div>
+        </div>
+
+      <div class="row">
+        <div class="span4 offset8">
+          <div class="pull-right">
+           <%= link_to 'Continue Shopping', root_path, class: "btn btn-info" %> 
+
+           <%= form_for [@user, @order], html: {class: 'btn'} do |f| %>
+              <%= hidden_field(:id, value: @order.id) %>
+              <%= f.hidden_field(:user_id, value: @order.buyer_id) %>
+              <%= f.hidden_field(:closed, value: true) %>
+              <script
+                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="pk_test_4ZhITOYJY3iwoEXMHm2suTBw"
+                data-amount="<%= @order.total*100 %>"
+                data-name="ThePupClub"
+                data-description="<%= order_quantity %> item(s) (<%= @order.pretty_total %>)"
+                data-image="/128x128.png">
+              </script>
+           <% end %>
+          </div>
+        </div>
+      </div>
+    </div>

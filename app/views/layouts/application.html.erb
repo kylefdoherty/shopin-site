@@ -14,13 +14,11 @@
         <h3><%= flash[:notice] %></h3>
       </div>
     <% end %>
-    
-  <div class="container">
+  
 
-    
     <%= yield %>
 
-  </div>
+    <%= render 'layouts/footer' %>
 
 </body>
 </html>

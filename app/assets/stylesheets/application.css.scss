@@ -17,17 +17,20 @@
  *= require jquery.countdown
  *= require settings
  *= require_self
- *= require style
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.eot"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.woff"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.ttf"
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.svg"
+ *= require style
  */
 @import "bootstrap";
 /* Some Style from the Bootstrap Default Theme */
 
 
-.container {
+.logo {
   margin-left: 25px;
 }
 
+footer {
+  margin-top: 100px;
+}
