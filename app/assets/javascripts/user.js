@@ -1,12 +1,16 @@
 $(function(){
   $('#buyer').hide();
   $('#edit').hide();
-  $('#seller').hide();
+  $('#products').hide();
+  $('#seller_pending_fulfillments').hide();
+
 
   $('#order-history').click(function(){
     $('#recent_purchases').hide();
     $('#edit').hide();
     $('#seller').hide();
+    $('#seller_pending_fulfillments').hide();
+    $('#products').hide();
     $('#buyer').show();
   });
 
@@ -14,6 +18,8 @@ $(function(){
     $('#recent_purchases').hide();
     $('#buyer').hide();
     $('#seller').hide();
+    $('#products').hide();
+    $('#seller_pending_fulfillments').hide();
     $('#edit').show();
   });
 
@@ -24,11 +30,20 @@ $(function(){
     $('#recent_purchases').show();
   });
 
-  $('#seller-account').click(function(){
+  $('#pending-fulfillments').click(function(){
     $('#buyer').hide();
     $('#edit').hide();
     $('#recent_purchases').hide();
-    $('#seller').show();
+    $('#products').hide();
+    $('#seller_pending_fulfillments').show();
+  });  
+
+  $('#my-products').click(function(){
+    $('#buyer').hide();
+    $('#edit').hide();
+    $('#recent_purchases').hide();
+    $('#seller_pending_fulfillments').hide();
+    $('#products').show(); 
   });
 
 });

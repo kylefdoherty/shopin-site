@@ -1,5 +1,5 @@
 <h2><%= User.find(@order.buyer_id).name %>'s Current Order:</h2>
-<h3 id="order_total">Current Total: $<span><%= number_with_precision(@order.total, precision:2) %></span></h3>
+<h3 id="order_total">Current Total: $<span><%= number_with_precision(@order.pretty_total, precision:2) %></span></h3>
 <h4><%= link_to 'Continue Shopping', root_path %></h4>
 
 <table style="width: 500px">
@@ -20,7 +20,7 @@
       <%= f.select :quantity, (0..li.item.quantity)%>
       <% end %>
     </td>
-    <td id="line_item_total_<%= li.id %>"><%= number_with_precision(li.total, precision: 2) %></td>
+    <td id="line_item_total_<%= li.id %>"><%= li.pretty_total %></td>
     <td>
       <%= button_to "Remove", li, :remote => true, :method => :delete %>
     </td>

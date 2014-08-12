@@ -13,8 +13,10 @@ class LineItemsController < ApplicationController
   end 
   
   def update
+    # binding.pry
    @line_item = LineItem.find(params[:id])
    @line_item.quantity = params[:line_item][:quantity]
+   @line_item.status = params[:line_item][:status]
    @line_item.save
    @order = @line_item.order
    @user = User.find(@order.buyer_id)
@@ -50,7 +52,7 @@ class LineItemsController < ApplicationController
 
   private
    def lineitem_params
-      params.require(:line_item).permit(:item_id, :order_id, :quantity)
+      params.require(:line_item).permit(:item_id, :order_id, :quantity, :status)
     end
 
 
