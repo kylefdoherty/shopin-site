@@ -13,7 +13,7 @@ class LineItemsController < ApplicationController
   end 
   
   def update
-    # binding.pry
+    
    @line_item = LineItem.find(params[:id])
    @line_item.quantity = params[:line_item][:quantity]
    @line_item.status = params[:line_item][:status]
