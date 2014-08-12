@@ -1176,8 +1176,8 @@ strong{
 }
 
 .shop-items .item-price{
-  padding: 0px 7px;
-	margin: 5px;
+  padding: 0px;
+	margin: 5px 0px;
 	display: inline-block;
 	border-radius: 5px;
 	font-size: 13px;

@@ -20,12 +20,12 @@
       <td><%= li.item.price_pretty %></td>
       <td>
         <%= form_for li, :remote => true do |f|  %>
-        <%= f.select :quantity, (0..li.item.quantity)%>
+        <%= f.select :quantity, (0..li.item.quantity), {}, {class: 'form-control'}%>
         <% end %>
       </td>
       <td id="line_item_total_<%= li.id %>"><%= li.pretty_total %></td>
       <td>
-        <%= button_to "Remove", li, :remote => true, :method => :delete %>
+        <%= button_to "Remove", {path: line_item_path(li), remote: true, method: :delete}, {class: 'btn btn-danger btn-sm'} %>
       </td>
     </tr>
   <% end %>
