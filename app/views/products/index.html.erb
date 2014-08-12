@@ -10,9 +10,6 @@
     <div class="sep-bor"></div>
   </div>
 </div>
-
-Category: <%= collection_select(:product_tag, :tag_id, @tags, :id, :name, prompt: true) %>
-
 <!-- <div class="products tags"> -->
   <!-- <input class="typeahead" type="text" placeholder="Products & tags"> -->
 <!-- </div> -->
@@ -20,6 +17,12 @@ Category: <%= collection_select(:product_tag, :tag_id, @tags, :id, :name, prompt
 <!-- display all products (or filtered by div class in product.js) -->
 <div class="shop-items blocky">
   <div class="container">        
+    <table>
+      <tr>
+        <td>Category:</td>
+        <td><%= collection_select(:product_tag, :tag_id, @tags, :id, :name, {prompt: true}, {class: 'form-control'}) %></td>
+      </tr>
+    </table>
     <div class="row">          
       <div class="display">
         <%= render @products %>
