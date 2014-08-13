@@ -4,11 +4,11 @@ class LineItem < ActiveRecord::Base
   belongs_to :order
 
   def total 
-    self.quantity ? self.quantity * self.item.price_cents/100 : 0
+    self.quantity ? self.quantity * self.item.price_cents/100.to_f : 0
   end 
 
   def pretty_total
-    self.quantity ? number_to_currency(self.quantity * self.item.price_cents/100) : '$0.00'
+    number_to_currency(self.total)
   end 
   
 end
