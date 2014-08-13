@@ -21,8 +21,8 @@ class LineItemsController < ApplicationController
   end 
   
   def update
-    @line_item.quantity = params[:line_item][:quantity]
-    @line_item.status = params[:line_item][:status]
+    @line_item.quantity = lineitem_params[:quantity]
+    @line_item.status = lineitem_params[:status] if lineitem_params[:status]
     @line_item.save
 
     @order = @line_item.order
