@@ -36,8 +36,10 @@
               <!-- Quantity and add to cart button -->              
               <!-- <div class="input-group"> -->
                 <% if current_user %>
+                  <% li = @order.line_items.detect {|line_item| line_item.item_id == @product.id} || LineItem.new %>
                 <!-- <div class="form-group"> -->
-                  <%= form_for LineItem.new do |f|  %>
+                  <%= form_for li, url: line_items_path, method: 'post' do |f|  %>
+                    <%= f.hidden_field(:id, value: li.id) %>
                     <%= f.hidden_field(:item_id, value: @product.id) %>
                     <%= f.hidden_field(:order_id, value: @order.id) %>
                     <!-- <input type="text" class="" placeholder="2"> -->

@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit]
+  before_action :set_product, except: [:new, :create, :index]
   before_action :authorize_vendor!, except: [:index, :show]
   skip_before_action :authentication_required, only: [:index, :show]
 
@@ -33,7 +33,6 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product = Product.find(params[:id])
     @user = User.find(@product.seller_id)
     if @product.update(product_hash)
       redirect_to(@user) # 'My Products' tab on user show page?
@@ -43,7 +42,6 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:id])
     @product.seller_id = nil
     @product.save
 

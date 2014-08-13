@@ -18,7 +18,9 @@
       <div class="item-price"><%= product.price_pretty %></div>
       <div class="pull-right">
         <% if current_user %>
-          <%= form_for LineItem.new do |f|  %>
+          <% li = User.find(session[:user_id]).orders.last.line_items.detect {|line_item| line_item.item_id == product.id} || LineItem.new %>
+          <%= form_for li, url: line_items_path, method: 'post' do |f|  %>
+            <%= f.hidden_field(:id, value: li.id) %>
             <%= f.hidden_field(:item_id, value: product.id) %>
             <%= f.hidden_field(:order_id, value: User.find(session[:user_id]).orders.last.id) %>
             <%= f.hidden_field(:quantity, value: 1) %>
