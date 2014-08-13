@@ -4,5 +4,5 @@ $('.hidden').text('<%= "#{@order.line_items.collect{|item| item.quantity}.reduce
 (function() {
   var cartCount = $('.hidden').text(),
       cartTotal = $('tr:last th:last').text();
-  $('.fa-shopping-cart').parent().html("<i class='fa fa-shopping-cart'></i>" + cartCount + " - " + cartTotal);
+  $('.fa-shopping-cart').parent().html("<i class='fa fa-shopping-cart'></i>&nbsp" + cartCount + " - " + cartTotal);
 })();
