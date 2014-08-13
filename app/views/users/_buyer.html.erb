@@ -32,7 +32,7 @@
            <td><%= li.item.price_pretty %></td>
            <td><%= li.quantity %></td>
            <td><%= li.pretty_total %></td>
-           <td><%= ['Completed','Shipped','Processing'].sample %></td>
+           <td><%= li.status %></td>
          </tr>
          <% end %>
          <tr>

@@ -24,7 +24,8 @@
               </tr>
             </thead>
          <tbody>
-          <% fulfill.line_items.each do |li| %>
+          <% seller_items = fulfill.line_items.select {|line| line.item.seller_id == @user.id} %>
+          <% seller_items.each do |li| %>
            <tr>
              <td><%= li.updated_at.strftime('%b %d, %Y') %></td>
              <td><%= image_tag li.item.product_image_url(:small_thumb).to_s %></td>
