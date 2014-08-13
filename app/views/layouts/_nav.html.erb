@@ -1,39 +1,39 @@
 <div class="header"> 
-  <!-- <div class="container"> -->
-    <!-- <div class="row"> -->
-      <div class="col-md-2 col-sm-2">
-          <img src="/assets/logo.png" alt="" class="img-responsive" id="logo-image" />
-        <div class="logo">
-          <h1><%= link_to "ThePupClub", root_path %></h1>
-        </div>
-      </div> <!-- .col-md-2 col-sm-2 -->
-      <!-- Navigation menu -->
-        
-          <div class="col-md-6 col-sm-5">
-      
-          </div>
-          <div class="col-md-4 col-sm-5">
-            <div class="kart-links">
-              <% if session[:current_user] %>
-                <% cart = current_user.orders.last %>
-                <% if cart.total > 0 %>
-                  <%= link_to "<i class='fa fa-shopping-cart'></i> #{cart.line_items.collect{|item| item.quantity}.reduce(:+)} - #{cart.pretty_total}".html_safe, [current_user, current_user.orders.last] %>
-                <% else %>
-                  <%= link_to '<i class="fa fa-shopping-cart"></i> Cart'.html_safe, [current_user, cart] %>
-                <% end %>
-                <%= link_to 'Account', current_user %>
-                <%= link_to "Log Out", logout_path %>
-              <% else %>
-                <%= link_to "Log in with Facebook", "/auth/facebook" %> 
-              <% end %>
-            </div>
-          </div>
+  <div class="col-md-2 col-sm-2">
+    <img src="/assets/logo.png" alt="" class="img-responsive" id="logo-image" />
+    <div class="logo">
+      <h1><%= link_to 'ThePupClub', root_path %></h1>
+    </div>
+  </div> <!-- .col-md-2 col-sm-2 -->
+
+  <div class="col-md-6 col-sm-5">
+    <!-- Navigation menu -->
+    <div class="navi">
+      <div class="mattblackmenu">
+        <ul>
+          <li><%= link_to 'Home', root_path %></li>
+          <li><%= link_to 'About', about_path %></li>
+          <li><%= link_to 'My Cart', user_order_path(current_user, current_user.orders.last) if current_user %></li>  
+          <li><%= link_to 'My Account', user_path(current_user) if current_user %></li>          
+        </ul>
+      </div>
+    </div>                  
+  </div>
+
+  <div class="col-md-4 col-sm-5">
+    <div class="kart-links">
+      <% if session[:current_user] %>
+        <% cart = current_user.orders.last %>
+        <% if cart.total > 0 %>
+          <%= link_to "<i class='fa fa-shopping-cart'></i> #{cart.line_items.collect{|item| item.quantity}.reduce(:+)} - #{cart.pretty_total}".html_safe, [current_user, current_user.orders.last] %>
+        <% else %>
+          <%= link_to '<i class="fa fa-shopping-cart"></i> Cart'.html_safe, [current_user, cart] %>
+        <% end %>
+        <%= link_to 'Account', current_user %>
+        <%= link_to "Log Out", logout_path %>
+      <% else %>
+        <%= link_to "Log in with Facebook", "/auth/facebook" %> 
+      <% end %>
     </div>
   </div>
 </div>
-
-
-
-
-     
-
