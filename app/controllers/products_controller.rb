@@ -57,7 +57,7 @@ class ProductsController < ApplicationController
     end
 
     def product_hash
-      params.require(:product).permit(:title, :price_dollars, :description, :quantity, :product_image)
+      params.require(:product).permit(:title, :price_dollars, :description, :quantity, :product_image, tag_ids: [], tags_attributes: [:name])
     end
 
     def authorize_vendor!

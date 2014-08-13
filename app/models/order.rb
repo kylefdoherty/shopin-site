@@ -9,7 +9,7 @@ class Order < ActiveRecord::Base
   end  
 
   def pretty_total
-    self.line_items.empty? ? '$0.00' : number_to_currency(self.line_items.collect {|i| i.total}.reduce(:+))
+    number_to_currency(self.total)
   end
 
 end

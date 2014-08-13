@@ -44,6 +44,15 @@
         <%= f.number_field :quantity, class: "form-control" %>
       </div>
 
+      <div class="form-group">
+        <b>Product Tags</b><br>
+        <%= f.fields_for :tags, Tag.new, class: 'form-control' do |tags_form| %>
+          <%= tags_form.label :name %>
+          <%= tags_form.text_field :name %><br>
+        <% end %>
+        <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
+      </div>
+      
       <div class="actions form-group">
           <%= f.submit class: "btn btn-danger" %>
       </div>
