@@ -7,17 +7,30 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-User.create(name: "user1")
-User.create(name: "user2")
-User.create(name: "user3")
-User.create(name: "user4")
-User.create(name: "user5")
+@product_titles = ["Brads Paws", "Dino Nylabone", "Bacon Filled Bone", "Greenies", "Healthy Hound", "Knotted Chew Rope", "Kong Cozie Marvin", "Rag Rope Ball", "Rileys Organic", "Zukes Training Treats"]
+@quantity = [500,250,150,1000,600,475]
+@price = [1025, 1599, 1999, 3075, 2599, 599, 1075]
+@users = %w[Cyril Ona Ronald Evette Suzan Ariana Annie Yee Sirena Tatyana Marvin Aileen 
+Myrta Jc Darnell Stasia Bobbye Willodean Dannielle Edythe Nathalie 
+Takako Florida Loriann Lavinia Camille Tasha Lu Ashley Thresa Kyle Emily]
+@descriptions = ['A scrumptious canine treat, helps fight plaque', 'Non-GMO wet food for a balanced doggie diet', 'Great toy for all pups', 'Your dog will love this!']
+@tags = %w[Dry]
 
-Product.create(title: "Kibble'n'Bits", quantity: 8, price_cents: 1025, seller_id: 1, description: 'A scrumptious canine treat, helps fight plaque')
-Product.create(title: "Chow Down", quantity: 4, price_cents: 1590, seller_id: 2, description: 'Non-GMO wet food for a balanced doggie diet')
-Product.create(title: "Horse Bully Sticks", quantity: 5, price_cents: 1995, seller_id: 3, description: 'Forget those measly bull penises')
-Product.create(title: "Himalayan Kong", quantity: 9, price_cents: 3075, seller_id: 6, description: 'Made of yak cheese. Stronger than vulcanized rubber')
-Product.create(title: "Tugga War", quantity: 2, price_cents: 3999, seller_id: 6, description: 'Why yes, you WILL pay too much for this hemp rope knot')
+100.times do 
+  User.create(name: @users.sample )
+end 
+
+100.times do 
+  title = @product_titles.sample
+  Product.create(title: title, quantity: @quantity.sample, price_cents: @price.sample, seller_id: (1..25).to_a.sample, 
+    description: '@description.sample',  product_image: File.open(File.join(Rails.root, "vendor/assets/images/items/#{title.downcase.gsub(" ", "_")}.jpg")))
+end 
+
+
+
+
+
+
 
 Order.create(buyer_id: 1, closed: true)
 Order.create(buyer_id: 2)
@@ -35,10 +48,6 @@ Tag.create(name: 'Wet Food')
 Tag.create(name: 'Treats')
 Tag.create(name: 'Toys')
 
-ProductTag.create(tag_id: 1, product_id:1)
-ProductTag.create(tag_id: 2, product_id:2)
-ProductTag.create(tag_id: 3, product_id:1)
-ProductTag.create(tag_id: 3, product_id:3)
-ProductTag.create(tag_id: 4, product_id:3)
-ProductTag.create(tag_id: 4, product_id:4)
-ProductTag.create(tag_id: 4, product_id:5)
+100.times do |n|
+  ProductTag.create(tag_id: (1..4).to_a.sample, product_id: n)
+end 
