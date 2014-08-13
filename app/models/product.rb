@@ -26,4 +26,10 @@ class Product < ActiveRecord::Base
     Product.all.select {|p| p.seller_id != nil}
   end 
 
+  def tags_attributes=(tags_attributes)
+    tags_attributes.values.each do |tag|
+      tags.find_or_initialize_by(tag) if !tag[:name].blank?
+    end
+  end 
+
 end
