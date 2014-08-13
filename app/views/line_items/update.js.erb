@@ -1,5 +1,4 @@
 $('tr:last th:last').text('<%=j "#{@order.pretty_total}" %>');
-// debugger if line item total is 0, remove line item
 $('#line_item_total_<%= "#{@line_item.id}" %>').text('<%=j "#{@line_item.pretty_total}" %>');
 $('.hidden').text('<%=j "#{@order.line_items.collect{|item| item.quantity}.reduce(:+)}" %>');
 (function() {

@@ -1,16 +1,17 @@
 class LineItemsController < ApplicationController
   before_action :set_line_item, only: [:update, :destroy]
-  before_action :set_user, only: [:create, :update, :destroy]
-  before_action :set_order, only: [:create, :update, :destroy]
 
   def create
-    @line_item = LineItem.find(lineitem_params[:id])
-    if @line_item.new_record?
+    if lineitem_params[:id].empty?
       @line_item = LineItem.create(lineitem_params)
     else
+      @line_item = LineItem.find(lineitem_params[:id])
       @line_item.quantity += lineitem_params[:quantity].to_i
       @line_item.save
     end
+
+    @order = @line_item.order
+    @user = User.find(@order.buyer_id)
 
     if @line_item
       redirect_to(user_order_path(@user, @order))
@@ -24,14 +25,22 @@ class LineItemsController < ApplicationController
     @line_item.status = params[:line_item][:status]
     @line_item.save
 
+    @order = @line_item.order
+    @user = User.find(@order.buyer_id)
+
     if @line_item
-      redirect_to(user_order_path(@user, @order))
+      respond_to do |format|
+        format.html 
+        format.js
+      end
     else
       render :edit
-    end
+     end
   end  
 
-  def destroy 
+  def destroy
+    @order = @line_item.order
+    @user = User.find(session[:user_id])
     @line_item.destroy
 
     respond_to do |format|
