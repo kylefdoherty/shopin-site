@@ -1,0 +1,172 @@
+<!-- Page title -->
+<div class="page-title">
+   <div class="container">
+      <h2><i class="fa fa-desktop color"></i> About this Project</h2>
+      <hr />
+   </div>
+</div>
+<!-- Page title -->
+
+<div class="about-us blocky">
+   <div class="container">
+      <div class="row">
+
+         <div class="col-md-10 col-sm-10">               
+            <h4>Why Another Shopping Site</h4>
+            <p>When you think about the top internet companies that have changed the way we use and do business on the web, eCommerce sites and marketplaces such as Amazon, Ebay, and Etsy, often come to mind.  These companies continue to be trailblazers in how we build, consume, and do business on the internet. Additionally, they solve a host of non-trivial problems that we as consumers take for granted on a daily basis.  It was these technical challenges, such as complex model associations, large amounts of data, and dealing with payment, that we wanted to explore through building our own marketplace. </p>
+            <br />
+      
+            <h4>Technology and Concepts Learned</h4>
+            <ul>
+              <li>
+                <strong>Complex Associations Between Models -</strong>
+                 a marketplace site has different types of users (buyer & seller) who have products, line items, and orders that mean different things to them depending on what type of user they are.  This required us to create complex associations between models and arrange views so the appropriate data is displayed to the each type of user, such as a seller marking  a product as shipped and that showing up on the correct buyers order history page.
+              </li><br>
+              <li>
+                <strong>User Experience (AJAX) -</strong> 
+                to provide a good user experience when interacting with your shopping cart, editing the products you offer as a seller, etc. we utilized ajax to asynchronously update the database, and allow the user to continue with what they’re doing without annoying page refreshes.  
+              </li><br>
+              <li>
+                <strong>Handling Money -</strong>
+                an obvious necessity of any shopping site is handling money.  While not an overly complex thing there are specific considerations and implementations that must be employed to correctly handle money without having rounding errors or displaying it incorrectly across pages.
+              </li><br>
+              <li>
+                <strong>User Interface (Asset Pipeline) -</strong> 
+                one thing we took for granted in the beginning is how many pages and components a shopping site has that need different views, partials, helpers, and various assets.  This gave us a deeper understanding of how the asset pipeline in rails works and how important it is.
+              </li><br>
+              <li><strong>Payment -</strong> 
+                online payment can be a tricky thing, but luckily the Stripe API makes this as simple as possible.  By learning how to integrate Stripe with our marketplace we are able to handle payment smoothly and without the necessity for HTTPS or being PCI compliant.
+              </li><br>
+              <li><strong>Carrierwave & AWS -</strong> 
+                to handle image uploads we used the carrierwave gem and Amazon Web Services. This taught about why you should handle file uploads on a different server from your code, how to use AWS, and the necessity of background processes for file uploads, which is a next step.
+              </li><br>
+       <!--        <li><strong>Search -</strong> 
+                {stuff about search}
+              </li><br> -->
+              <li><strong>Tagging -</strong> 
+                to make it easier for buyers to find products and sellers to more effectively organize their items to sell we added tagging the ability to sort products by tags.
+              </li>
+            </ul>
+            <br />
+
+            <h4>Next Steps</h4>
+            <ul>
+              <li>Background processing for file uploads</li>
+              <li>Seller Dashboard</li>
+              <li>Event notifications (purchase complete, item shipped, etc.)</li>
+              <li>Bulk product upload</li>
+              <li>Performace optimization with Redis</li>
+              <li>URL slugs</li>
+            </ul>
+         </div>
+
+<!--          <div class="col-md-2 col-sm-2">
+            <h4>Clients</h4>
+            <ul>
+               <li><a href="#">Condimentum</a></li>
+               <li><a href="#">Etiam at</a></li>
+               <li><a href="#">Fusce vel</a></li>
+               <li><a href="#">Vivamus</a></li>
+               <li><a href="#">Pellentesque</a></li>
+            </ul>
+            <br />
+         </div> -->
+      </div>
+
+
+
+<!-- About team starts -->
+<div class="about-team">
+   <h3><i class="fa fa-group color"></i> The Team</h3>
+   <hr />
+
+   <div class="row">
+               <div class="col-md-3 col-sm-3 col-xs-6">
+                  <!-- Staff #1 -->
+                  <div class="staff">
+                     <!-- Picture -->
+                     <div class="pic">
+                        <img src="assets/emily.jpg" alt="" class="img-responsive"/>
+                     </div>
+                     <!-- Details -->
+                     <div class="details">
+                        <!-- Name and designation -->
+                        <div class="desig pull-left">
+                           <p class="name">Emily Lowing</p>
+                           
+                        </div>
+                        <!-- Social media details. Replace # with profile links -->
+                        <div class="asocial pull-right">
+                           
+                           <a href="https://twitter.com/elowing1"><i class="fa fa-twitter"></i></a>
+                           <a href="https://www.linkedin.com/in/elowing"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                        <div class="clearfix"></div>
+                        <!-- Description -->
+                        
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-3 col-sm-3 col-xs-6">
+                  <!-- Staff #2 -->
+                  <div class="staff">
+                     <div class="pic">
+                        <img src="assets/kyle.jpg" alt="" class="img-responsive"/>
+                     </div>
+                     <div class="details">
+                        <div class="desig pull-left">
+                           <p class="name">Kyle Doherty</p>
+                           
+                        </div>
+                        <div class="asocial pull-right">
+                           
+                           <a href="https://twitter.com/kylefdoherty"><i class="fa fa-twitter"></i></a>
+                           <a href="https://www.linkedin.com/in/kylefdoherty"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                        <div class="clearfix"></div>
+                        
+                     </div>
+                  </div>
+               </div>
+   </div>
+
+</div>
+<!-- About team ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+
+
+
+    
+
+
+
+
+      

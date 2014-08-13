@@ -1,5 +1,4 @@
-<div class="view-cart blocky">
- <div class="container">
+<div class="container">
     <div class="row">
        <div class="col-md-10">
               
@@ -10,7 +9,7 @@
            <thead>
              <tr>
                <th>Date</th>
-               <th>ID</th>
+               <th>Image</th>
                <th>Name</th>
                <th>Price</th>
                <th>Quantity</th>
@@ -23,7 +22,7 @@
 
              <tr>
                <td><%= li.updated_at.strftime('%b %d, %Y') %></td>
-               <td><%= li.id %></td>
+               <td><%= image_tag li.item.product_image_url(:small_thumb).to_s %></td>
                <td><%= li.item.title %></td>
                <!-- <td><%# li.item.price_dollars %></td> -->
                <td><%= li.item.price_pretty %></td>
@@ -42,4 +41,3 @@
        </div>
       </div>
     </div>
-  </div>
