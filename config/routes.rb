@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   root 'products#index'
-
   resources :products
   resources :charges, only: [:new, :create]
 
@@ -18,5 +17,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
 
   get '/auth/facebook/callback', to: 'sessions#create'
+
+  get '/about', to: 'info#about'
 
 end

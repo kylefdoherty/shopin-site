@@ -29,7 +29,13 @@
 
 
 .logo {
-  margin-left: 25px;
+  margin-left: 60px;
+}
+
+#logo-image {
+  float: left;
+  margin-top: 6px;
+   -webkit-filter: invert(100%); 
 }
 
 footer {
