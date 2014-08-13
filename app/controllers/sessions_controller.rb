@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     @user.orders.create if !@user.orders.last || @user.orders.last.closed
     session[:user_id] = @user.id
     session[:current_user] = @user
-    flash[:notice] = "Thanks for signing in, #{@user.name}!"
+    # flash[:notice] = "Thanks for signing in, #{@user.name}!"
     redirect_to :back
   end
 
