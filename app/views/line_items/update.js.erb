@@ -1,5 +1,5 @@
 $('tr:last th:last').text('<%=j "#{@order.pretty_total}" %>');
-$('tr:last th:last').text('<%=j "#{@order.pretty_total}" %>');
+$('.stripe-button.active data[amount]').text('<%=j "#{@order.total*100).to_i}" %>');
 $('#line_item_total_<%= "#{@line_item.id}" %>').text('<%=j "#{@line_item.pretty_total}" %>');
 $('.hidden').text('<%=j "#{@order.line_items.collect{|item| item.quantity}.reduce(:+)}" %>');
 (function() {
