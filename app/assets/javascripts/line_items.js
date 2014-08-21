@@ -8,6 +8,7 @@ $(function(){
       $(this).parent().siblings().last().find('form').submit();
     } else {
       $(this).submit();
+
     }
   });
 
