@@ -1,11 +1,6 @@
 Rails.application.configure do
   GA.tracker = Rails.application.secrets.google_analytics_code
   # Settings specified here will take precedence over those in config/application.rb.
-
-  config.assets.precompile += %w( line_items.js product.js user.js charges.js.coffee info.js.coffee )
-
-
-
   # Code is not reloaded between requests.
   config.cache_classes = true
 

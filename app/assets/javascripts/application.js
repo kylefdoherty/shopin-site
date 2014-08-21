@@ -10,10 +10,6 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require bootstrap
-//= require line_items
-//= require product
-//= require user
 //= require jquery
 //= require jquery_ujs
 //= require ddlevelsmenu
@@ -27,4 +23,8 @@
 //= require jquery.themepunch.revolution.min
 //= require respond.min
 //= require twitter/typeahead.min
+//= require bootstrap
+//= require line_items
+//= require product
 //= require typeahead
+//= require user
