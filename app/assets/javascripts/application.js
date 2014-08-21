@@ -16,7 +16,6 @@
 //= require filter
 //= require html5shiv
 //= require jquery.carouFredSel-6.2.1-packed
-//= require custom
 //= require jquery.countdown.min
 //= require jquery.navgoco.min
 //= require jquery.themepunch.plugins.min
