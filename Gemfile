@@ -32,6 +32,7 @@ gem 'fog'
 
 
 gem 'stripe', git: 'https://github.com/stripe/stripe-ruby'
+gem 'rails_12factor', group: :production
 
 
 # Use ActiveModel has_secure_password
