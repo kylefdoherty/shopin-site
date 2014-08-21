@@ -4,7 +4,12 @@ $('.stripe-button.active').attr('data-description', '<%=j "#{(@order.line_items.
 $('#line_item_total_<%= "#{@line_item.id}" %>').text('<%=j "#{@line_item.pretty_total}" %>');
 $('.hidden').text('<%=j "#{@order.line_items.collect{|item| item.quantity}.reduce(:+)}" %>');
 (function() {
-  var cartCount = $('.hidden').text(),
-      cartTotal = $('tr:last th:last').text();
-  $('.fa-shopping-cart').parent().html("<i class='fa fa-shopping-cart'></i>&nbsp" + cartCount + " - " + cartTotal);
+var cartCount = $('.hidden').text(),
+cartTotal = $('tr:last th:last').text();
+$('.fa-shopping-cart').parent().html("<i class='fa fa-shopping-cart'></i>&nbsp" + cartCount + " - " + cartTotal);
 })();
+
+
+$("#stripe-iframe").html('<%= j render "orders/stripe_button" %>');
+
+

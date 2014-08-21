@@ -80,14 +80,9 @@
               <%= hidden_field(:id, value: @order.id) %>
               <%= f.hidden_field(:user_id, value: @order.buyer_id) %>
               <%= f.hidden_field(:closed, value: true) %>
-              <script
-                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                data-key="pk_test_4ZhITOYJY3iwoEXMHm2suTBw"
-                data-amount="<%= (@order.total*100).to_i %>"
-                data-name="ThePupClub"
-                data-description="<%= order_quantity %> item(s) (<%= @order.pretty_total %>)"
-                data-image="/128x128.png">
-              </script>
+              <div id="stripe-iframe">
+                <%= render "stripe_button" %>
+              </div>
            <% end %>
           </div>
         </div>
