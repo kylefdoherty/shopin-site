@@ -26,5 +26,4 @@
 //= require bootstrap
 //= require line_items
 //= require product
-//= require typeahead
 //= require user
