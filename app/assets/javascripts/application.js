@@ -12,10 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.carouFredSel-6.2.1-packed
 //= require ddlevelsmenu
 //= require filter
 //= require html5shiv
-//= require jquery.carouFredSel-6.2.1-packed
 //= require custom
 //= require jquery.countdown.min
 //= require jquery.navgoco.min
