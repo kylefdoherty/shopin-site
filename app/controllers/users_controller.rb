@@ -2,20 +2,8 @@ class UsersController < ApplicationController
   before_action :set_user_from_params, only: [:show, :orders_summary]
   before_action :set_user_from_session, only: [:edit, :update]
 
-  def new
-  end
-
-  def create
-  end
-
-  def edit
-  end
-
   def update
     @user.update(user_params) ? redirect_to(@user) : render :edit
-  end
-
-  def show
   end
 
   def orders_summary
