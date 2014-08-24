@@ -1,36 +1,37 @@
 class UsersController < ApplicationController
-
-  def show
-    @user = User.find(params[:id])
-  end 
-
-  def orders_summary
-    
-    @user = User.find(params[:id])
-  end 
+  before_action :set_user_from_params, only: [:show, :orders_summary]
+  before_action :set_user_from_session, only: [:edit, :update]
 
   def new
-  end 
+  end
 
   def create
-  end 
+  end
 
   def edit
-    @user = User.find(session[:user_id])
-  end 
+  end
 
   def update
-    @user = User.find(session[:user_id])
-    if @user.update(user_params)
-      redirect_to(@user)
-    else
-      render :edit
-    end
-  end 
+    @user.update(user_params) ? redirect_to(@user) : render :edit
+  end
+
+  def show
+  end
+
+  def orders_summary
+  end
 
   private
     def user_params
       params.require(:user).permit(:name, :email, :vendor, :address, :zip, :phone, :country, :city, :state)
-    end 
+    end
+
+    def set_user_from_params
+      @user = User.find(params[:id])
+    end
+
+    def set_user_from_session
+      @user = User.find(session[:user_id])
+    end
 
 end

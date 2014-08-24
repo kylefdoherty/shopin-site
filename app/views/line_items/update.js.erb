@@ -8,3 +8,4 @@ $('.hidden').text('<%=j "#{@order.line_items.collect{|item| item.quantity}.reduc
       cartTotal = $('tr:last th:last').text();
   $('.fa-shopping-cart').parent().html("<i class='fa fa-shopping-cart'></i>&nbsp" + cartCount + " - " + cartTotal);
 })();
+$('iframe').attr('src', $('iframe').attr('src'));
