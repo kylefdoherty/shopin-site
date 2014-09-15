@@ -3,7 +3,11 @@ class UsersController < ApplicationController
   before_action :set_user_from_session, only: [:edit, :update]
 
   def update
-    @user.update(user_params) ? redirect_to(@user) : render :edit
+    if @user.update(user_params)
+      redirect_to(@user)
+    else
+      render :edit
+    end
   end
 
   def orders_summary
