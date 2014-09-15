@@ -14,19 +14,19 @@ class User < ActiveRecord::Base
   end
 
   def vendor?
-    self.vendor || Product.all.detect {|product| product.seller_id == self.id}
-  end 
+    self.vendor || !!Product.all.detect {|product| product.seller_id == self.id}
+  end
 
   def format_phone
     self.phone.insert(3,'-').insert(7,'-')
-  end 
+  end
 
   def closed_orders
     self.orders.select {|order| order.closed == true}
-  end 
+  end
 
-  def last_closed_order 
+  def last_closed_order
     self.closed_orders.last
-  end 
-  
+  end
+
 end
